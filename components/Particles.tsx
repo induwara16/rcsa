@@ -49,13 +49,13 @@ export default function Particles_() {
             },
             particles: {
                 color: {
-                    value: "#a7d9fd",
+                    value: "#a8dafe",
                 },
                 links: {
-                    color: "#a7d9fd",
+                    color: "#a8dafe",
                     distance: 150,
                     enable: true,
-                    opacity: 0.5,
+                    opacity: 0.6,
                     width: 1,
                 },
                 move: {

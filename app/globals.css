@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "tailwindcss-intersect";
+@plugin "tailwindcss-motion";
 @plugin 'flowbite-typography';
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
@@ -10,5 +12,5 @@
 }
 
 body * {
-  @apply transition-colors duration-300;
+  @apply motion-duration-1000 transition-colors duration-300;
 }
