@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import logo from "@/images/logo.png";
 
-export default function _Navbar() {
+export default function Navbar_() {
     return (
         <Navbar className="!py-0 !px-6 z-100 sticky border-b border-b-gray-700/30 dark:border-white/20" fluid>
             <NavbarBrand as={Link} href="/" className="py-2.5">

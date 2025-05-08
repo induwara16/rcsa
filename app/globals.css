@@ -1,11 +1,12 @@
 @import "tailwindcss";
+@plugin 'flowbite-typography';
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-display: var(--font-exo);
+  --font-display: var(--font-exo);
 }
 
 body * {

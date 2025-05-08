@@ -1,6 +1,7 @@
 import { createTheme, ThemeModeScript, ThemeProvider } from "flowbite-react";
 import type { Metadata } from "next";
 import { Exo } from "next/font/google";
+
 import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
 
