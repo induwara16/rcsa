@@ -23,7 +23,7 @@ export default function Particles_() {
     }, []);
 
     return (
-        init && <Particles className='dark:opacity-40' options={{
+        init && <Particles className='dark:opacity-30' options={{
             fpsLimit: 120,
             interactivity: {
                 events: {
@@ -65,7 +65,7 @@ export default function Particles_() {
                         default: "bounce",
                     },
                     random: false,
-                    speed: 6,
+                    speed: 4,
                     straight: false,
                 },
                 number: {
