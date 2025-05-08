@@ -1,15 +1,13 @@
 import { Button } from "flowbite-react";
 import Link from "next/link";
 
-import Particles from "@/components/Particles";
 import AnimatedBlob from "@/components/AnimatedBlob";
 
 import about_us from "@/assets/images/about-us.jpg";
 
 export default function Home() {
   return (
-    <section className="flex max-md:flex-col overflow-hidden items-center bg-white dark:bg-gray-800 px-10 min-h-[100vh] max-md:text-center py-10 lg:-mt-16">
-      <Particles />
+    <section className="flex max-md:flex-col items-center min-h-[100vh] max-md:text-center py-10 ">
       <div className="z-10 flex-1/2 flex flex-col gap-x-4 format dark:format-invert max-w-none intersect:motion-preset-slide-right-lg">
         <h1 className="!opacity-90 text-4xl sm:text-5xl font-semibold leading-12 md:leading-15 mb-0">Royal College Science Association</h1>
         <p>

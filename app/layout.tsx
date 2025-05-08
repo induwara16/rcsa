@@ -4,6 +4,8 @@ import { Exo } from "next/font/google";
 
 import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
+import Particles from '@/components/Particles';
+
 import dynamic from "next/dynamic";
 
 const exo = Exo({
@@ -66,7 +68,10 @@ export default function RootLayout({
         <IntersectionObserver />
         <ThemeProvider theme={theme}>
           <Navbar />
-          <main>{children}</main>
+          <main className="bg-white dark:bg-gray-800 px-10 overflow-hidden lg:-mt-16">
+            <Particles />
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
