@@ -1,35 +1,68 @@
-import { DarkThemeToggle, Dropdown, DropdownItem, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
+"use client";
+
+import { useRef } from "react";
+
+import {
+  DarkThemeToggle,
+  Dropdown,
+  DropdownItem,
+  Navbar,
+  NavbarBrand,
+  NavbarCollapse,
+  NavbarLink,
+  NavbarToggle,
+} from "flowbite-react";
 import Link from "next/link";
 import Image from "next/image";
 
 import logo from "@/assets/images/logo.png";
 
 export default function Navbar_() {
+  const navbar = useRef<HTMLDivElement>(null);
+
   return (
-    <Navbar className="!py-0 !px-6 z-100 sticky border-b border-b-gray-700/30 dark:border-white/20 intersect:*:motion-preset-blur-down-md intersect-once" fluid>
+    <Navbar
+      className="intersect:*:motion-preset-blur-down-md intersect-once sticky top-0 z-100 border-b border-b-gray-700/30 !px-6 !py-0 dark:border-white/20"
+      ref={navbar}
+      fluid
+    >
       <NavbarBrand as={Link} href="/" className="py-2.5">
-        <Image className='w-14 dark:invert my-1' src={logo} alt="RCSA" />
+        <Image className="my-1 w-14 dark:invert" src={logo} alt="RCSA" />
       </NavbarBrand>
 
-      <div className="flex md:order-2 my-auto gap-x-5">
+      <div className="my-auto flex gap-x-5 md:order-2">
         <DarkThemeToggle />
         <NavbarToggle />
       </div>
 
       <NavbarCollapse>
-        <NavbarLink as={Link} href="/" active>Home</NavbarLink>
-        <NavbarLink as={Link} href="/projects">Projects</NavbarLink>
-        <NavbarLink as={Link} href="/articles">Articles</NavbarLink>
+        <NavbarLink as={Link} href="/" active>
+          Home
+        </NavbarLink>
+        <NavbarLink as={Link} href="/projects">
+          Projects
+        </NavbarLink>
+        <NavbarLink as={Link} href="/news">
+          News
+        </NavbarLink>
 
-        <NavbarLink as='div'>
-          <Dropdown as='button' inline label='Pages'>
-            <DropdownItem as={Link} href="/top-board">Top Board</DropdownItem>
-            <DropdownItem as={Link} href="/faq">FAQ</DropdownItem>
-            <DropdownItem as={Link} href="/contact-us">Contact Us</DropdownItem>
-            <DropdownItem as={Link} href="/about-us">About Us</DropdownItem>
+        <NavbarLink as="div">
+          <Dropdown as="button" inline label="Pages">
+            <DropdownItem as={Link} href="/top-board">
+              Top Board
+            </DropdownItem>
+            <DropdownItem as={Link} href="/gallery">
+              Gallery
+            </DropdownItem>
+            <DropdownItem as={Link} href="/contact-us">
+              Contact Us
+            </DropdownItem>
+            <DropdownItem as={Link} href="/about-us">
+              About Us
+            </DropdownItem>
           </Dropdown>
         </NavbarLink>
-      </NavbarCollapse >
-    </Navbar >
+      </NavbarCollapse>
+    </Navbar>
   );
 }

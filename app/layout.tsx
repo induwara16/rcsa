@@ -4,7 +4,7 @@ import { Exo } from "next/font/google";
 
 import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
-import Particles from '@/components/Particles';
+import Particles from "@/components/Particles";
 
 import dynamic from "next/dynamic";
 
@@ -22,55 +22,55 @@ const theme = createTheme({
   navbar: {
     root: {
       inner: {
-        base: 'md:!items-stretch'
-      }
+        base: "md:!items-stretch",
+      },
     },
     collapse: {
-      base: 'h-auto',
-      list: '*:!mx-0 md:h-full *:md:h-full *:md:flex *:md:items-center *:hover:!bg-gray-200 *:dark:hover:!bg-gray-700',
+      base: "h-auto",
+      list: "*:!mx-0 *:hover:!bg-gray-200 md:h-full *:md:flex *:md:h-full *:md:items-center *:dark:hover:!bg-gray-700",
     },
     link: {
-      base: "text-base font-semibold hover:!text-sky-600 hover:dark:!text-sky-400 flex !px-4 !mx-0",
+      base: "!mx-0 flex !px-4 text-base font-semibold hover:!text-sky-600 hover:dark:!text-sky-400",
       active: {
         on: "text-sky-700 dark:text-sky-500",
-      }
-    }
+      },
+    },
   },
   dropdown: {
     floating: {
-      item: { base: '!text-base hover:!text-sky-600 hover:dark:!text-sky-400' }
+      item: { base: "!text-base hover:!text-sky-600 hover:dark:!text-sky-400" },
     },
   },
   button: {
     outlineColor: {
-      default: 'border border-neutral-800 text-neutral-800 hover:border-primary-800 hover:bg-primary-800 hover:text-white focus:ring-primary-300 dark:border-neutral-300 dark:text-neutral-300 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:hover:text-white dark:focus:ring-primary-800'
+      default:
+        "hover:border-primary-800 hover:bg-primary-800 focus:ring-primary-300 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border border-neutral-800 text-neutral-800 hover:text-white dark:border-neutral-300 dark:text-neutral-300 dark:hover:text-white",
     },
-    base: 'py-6 !px-8 !tracking-wider'
-  }
+    base: "!px-8 py-6 !tracking-wider",
+  },
 });
 
-const IntersectionObserver = dynamic(() => import("@/components/IntersectObserver"));
+const IntersectionObserver = dynamic(
+  () => import("@/components/IntersectObserver"),
+);
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <ThemeModeScript />
       </head>
-      <body
-        className={`${exo.className} antialiased`}
-      >
+      <body className={`${exo.className} antialiased`}>
         <IntersectionObserver />
         <ThemeProvider theme={theme}>
           <Navbar />
-          <main className="bg-white dark:bg-gray-800 px-10 overflow-hidden lg:-mt-16">
+          <main className="overflow-hidden bg-white px-10 lg:-mt-16 dark:bg-gray-800">
+            <div className="relative !z-20">{children}</div>
             <Particles />
-            {children}
           </main>
         </ThemeProvider>
       </body>
