@@ -25,7 +25,7 @@ export default function Particles_() {
   return (
     init && (
       <Particles
-        className="dark:opacity-30"
+        className="opacity-60 dark:opacity-20"
         options={{
           fpsLimit: 120,
           interactivity: {
@@ -43,7 +43,7 @@ export default function Particles_() {
             },
             modes: {
               bubble: {
-                opacity: 0.8,
+                opacity: 0.6,
                 distance: 200,
                 duration: 0.4,
                 size: 20,

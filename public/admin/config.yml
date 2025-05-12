@@ -1,0 +1,159 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: content/gallery
+public_folder: /gallery
+
+logo_url: https://rcsa-new.netlify.app/favicon.ico
+site_url: https://rcsa-new.netlify.app
+display_url: /
+
+collections:
+  # - name: boards
+  #   label: Boards
+  #   identifier_field: year
+  #   label_singular: Board
+  #   description: Board Details
+  #   folder: src/content/boards
+  #   create: true
+  #   fields:
+  #   - label: Year
+  #     name: 'year'
+  #     widget: number
+  #   - label: 'Office Bearers'
+  #     name: "board"
+  #     widget: list
+  #     fields:
+  #       - { label: "Position", name: "position", widget: "string"}
+  #       - { label: "Name", name: "name", widget: "string"}
+  #       - label: 'Photo'
+  #         name: 'photo'
+  #         widget: 'image'
+  #         media_folder: /src/content/gallery
+  #         public_folder: ''
+  # - name: projects
+  #   label: Projects
+  #   label_singular: Project
+  #   description: Create and edit project descriptions
+  #   folder: src/content/projects
+  #   create: true
+  #   fields:
+  #     - label: Name
+  #       name: title
+  #       widget: string
+  #     - label: Pinned
+  #       name: pinned
+  #       widget: boolean
+  #       default: false
+  #     - label: Start
+  #       name: start
+  #       widget: datetime
+  #     - label: End
+  #       name: end
+  #       widget: datetime
+  #       required: false
+  #     - label: Featured Image,
+  #       name: featured
+  #       widget: image
+  #       media_folder: /src/content/gallery
+  #       public_folder: ''
+  #     - label: Description
+  #       name: body
+  #       widget: markdown
+  #     - label: Gallery
+  #       name: gallery
+  #       widget: list
+  #       field:
+  #         label: Image
+  #         name: image
+  #         widget: relation
+  #         collection: gallery
+  #         file: pics
+  #         display_fields: ['piclist.*.title', 'piclist.*.src']
+  #         search_fields: ['piclist.*.title']
+  #         value_field: 'piclist.*.src'
+  # - name: gallery
+  #   label: Gallery
+  #   description: Upload pictures to the Gallery
+  #   files:
+  #     - label: Pictures
+  #       name: pics
+  #       file: src/content/gallery.md
+  #       fields:
+  #       - label: 'Images'
+  #         name: 'piclist'
+  #         widget: list
+  #         fields:
+  #           - label: Image Source
+  #             name: src
+  #             widget: image
+  #             media_folder: 'gallery'
+  #             public_folder: ''
+  #           - {label: Featured, name: featured, widget: boolean, default: false}
+  #           - {label: Title, name: title, widget: string}
+  #           - {label: Description, name: description, widget: text, required: false}
+  #           - {label: Date, name: date, widget: datetime}
+  - name: "banners"
+    label: "Banners"
+    description: Banner 1 and Banner 2
+    files:
+      - label: "Banner 1"
+        name: "banner-1"
+        file: "content/banners/banner-1.md"
+        fields:
+          - { label: "Show", name: "show", widget: "boolean", default: true }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Text", name: "text", widget: "text" }
+          - label: "Button"
+            name: "button"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+          - label: Background
+            name: background
+            widget: image
+            media_folder: /content/banners
+            public_folder: ""
+      - label: "Banner 2"
+        name: "banner-2"
+        file: "content/banners/banner-2.md"
+        fields:
+          - { label: "Show", name: "show", widget: "boolean", default: true }
+          - label: Icon
+            name: icon
+            widget: image
+            media_folder: /content/banners
+            public_folder: ""
+          - { label: "Text", name: "text", widget: "text" }
+          - label: "Buttons"
+            name: "button"
+            widget: "object"
+            fields:
+              - label: "Button 1"
+                name: "button-1"
+                widget: "object"
+                fields:
+                  - {
+                      label: "Show",
+                      name: "show",
+                      widget: "boolean",
+                      default: true,
+                    }
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+              - label: "Button 2"
+                name: "button-2"
+                widget: "object"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+          - label: Background
+            name: background
+            widget: image
+            media_folder: /content/banners
+            public_folder: ""

@@ -12,7 +12,7 @@ export default function CountupSection() {
         { end: 2500, text: "Social Followers" },
       ].map((item, i) => (
         <div
-          className="not-intersect:opacity-0 intersect:motion-opacity-in-0 intersect:motion-scale-in-0 format dark:format-invert flex flex-col rounded-md bg-gray-200 px-8 py-12 text-center shadow-sm dark:bg-gray-700"
+          className="not-intersect:opacity-0 intersect:motion-opacity-in-0 intersect:motion-scale-in-0 format dark:format-invert flex flex-col rounded-md bg-gray-100 px-8 py-12 text-center shadow-sm dark:bg-gray-700"
           key={`countup-${i}`}
           style={{ animationDelay: `${i * 200}ms` }}
         >
