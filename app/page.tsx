@@ -3,12 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 import CountupSection from "@/components/CountupSection";
+import { Banner1 } from "@/components/Banner";
+
 import about_us from "@/assets/images/about-us.png";
 import about_us_lg from "@/assets/images/about-us-lg.png";
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col gap-y-10">
       <section className="flex min-h-[100vh] items-start gap-y-10 py-10 max-md:flex-col max-md:text-center">
         <div className="format dark:format-invert intersect:motion-preset-slide-right-lg my-auto flex max-w-none flex-7/16 flex-col gap-x-4">
           <h1 className="mb-0 text-4xl leading-12 font-semibold lg:text-5xl lg:leading-15">
@@ -42,7 +44,9 @@ export default function Home() {
         </div>
       </section>
 
+      <Banner1 />
+
       <CountupSection />
-    </>
+    </div>
   );
 }

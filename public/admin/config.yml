@@ -114,8 +114,14 @@ collections:
             fields:
               - { label: "Text", name: "text", widget: "string" }
               - { label: "Link", name: "link", widget: "string" }
+              - { label: "Open in New Tab", name: "newtab", widget: "boolean" }
           - label: Background
             name: background
+            widget: image
+            media_folder: /content/banners
+            public_folder: ""
+          - label: Image
+            name: image
             widget: image
             media_folder: /content/banners
             public_folder: ""
@@ -124,11 +130,6 @@ collections:
         file: "content/banners/banner-2.md"
         fields:
           - { label: "Show", name: "show", widget: "boolean", default: true }
-          - label: Icon
-            name: icon
-            widget: image
-            media_folder: /content/banners
-            public_folder: ""
           - { label: "Text", name: "text", widget: "text" }
           - label: "Buttons"
             name: "button"
@@ -146,12 +147,22 @@ collections:
                     }
                   - { label: "Text", name: "text", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
+                  - {
+                      label: "Open in New Tab",
+                      name: "newtab",
+                      widget: "boolean",
+                    }
               - label: "Button 2"
                 name: "button-2"
                 widget: "object"
                 fields:
                   - { label: "Text", name: "text", widget: "string" }
                   - { label: "Link", name: "link", widget: "string" }
+                  - {
+                      label: "Open in New Tab",
+                      name: "newtab",
+                      widget: "boolean",
+                    }
           - label: Background
             name: background
             widget: image
