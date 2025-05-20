@@ -1,12 +1,14 @@
-import { Button } from "flowbite-react";
+import { Button, List } from "flowbite-react";
 import Link from "next/link";
 import Image from "next/image";
 
 import CountupSection from "@/components/CountupSection";
+import TickListItem from "@/components/TickListItem";
 import { Banner1 } from "@/components/Banner";
 
 import about_us from "@/assets/images/about-us.png";
 import about_us_lg from "@/assets/images/about-us-lg.png";
+import welcome from "@/assets/images/welcome.png";
 
 export default function Home() {
   return (
@@ -47,6 +49,32 @@ export default function Home() {
       <Banner1 />
 
       <CountupSection />
+
+      <section className="flex items-center gap-x-15 gap-y-10 max-lg:flex-col max-lg:text-center">
+        <div className="not-intersect:invisible intersect:motion-preset-slide-right-lg flex flex-1/2 justify-center">
+          <Image src={welcome} alt="Welcome to RCSA" />
+        </div>
+        <div className="format dark:format-invert intersect:motion-preset-slide-left-lg flex max-w-none flex-1/2 flex-col">
+          <h1 className="mb-0 text-3xl leading-12 font-semibold lg:text-4xl lg:leading-15">
+            Welcome to RCSA
+          </h1>
+          <p className="text-sm tracking-wider md:mt-6">
+            We are a community of science enthusiasts and professionals
+            dedicated to advancing the understanding and appreciation of
+            science. Our goal is to provide a platform for learning, networking,
+            and professional development for students and scientists at all
+            levels. Join us today and be a part of the conversation about the
+            latest advancements and discoveries in science!
+          </p>
+
+          <List className="!mt-2 !pl-0 max-lg:mx-auto">
+            <TickListItem>Engaging Projects</TickListItem>
+            <TickListItem>Lectures</TickListItem>
+            <TickListItem>Field Trips</TickListItem>
+            <TickListItem>Research</TickListItem>
+          </List>
+        </div>
+      </section>
     </div>
   );
 }
