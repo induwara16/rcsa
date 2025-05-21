@@ -10,8 +10,8 @@ import { attributes as banner_1 } from "@/content/banners/banner-1.md";
 import { attributes as banner_2 } from "@/content/banners/banner-2.md";
 
 import logo from "@/assets/images/logo.png";
-import banner_1_bg from "@/assets/images/banner-1-bg.jpg";
-import banner_2_bg from "@/assets/images/banner-2-bg.jpg";
+import banner_1_bg from "@/assets/images/banner-1-bg.png";
+import banner_2_bg from "@/assets/images/banner-2-bg.png";
 
 export const Banner1: React.FC = () => {
   const divRef = useRef<HTMLDivElement>(null);
