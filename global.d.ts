@@ -27,3 +27,23 @@ interface Banner1Attributes {
     newtab: boolean;
   };
 }
+
+interface Banner2Attributes {
+  text: string;
+  background: string;
+  show: boolean;
+  buttons: {
+    button1: {
+      show: boolean;
+      text: string;
+      link: string;
+      newtab: boolean;
+    };
+    button2: {
+      show: boolean;
+      text: string;
+      link: string;
+      newtab: boolean;
+    };
+  };
+}

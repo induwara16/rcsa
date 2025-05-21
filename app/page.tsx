@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import CountupSection from "@/components/CountupSection";
 import TickListItem from "@/components/TickListItem";
-import { Banner1 } from "@/components/Banner";
+import { Banner1, Banner2 } from "@/components/Banner";
 
 import about_us from "@/assets/images/about-us.png";
 import about_us_lg from "@/assets/images/about-us-lg.png";
@@ -12,7 +12,7 @@ import welcome from "@/assets/images/welcome.png";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-y-10">
+    <div className="flex flex-col gap-y-10 pb-10">
       <section className="flex min-h-[100vh] items-start gap-y-10 py-10 max-md:flex-col max-md:text-center">
         <div className="format dark:format-invert intersect:motion-preset-slide-right-lg my-auto flex max-w-none flex-7/16 flex-col gap-x-4">
           <h1 className="mb-0 text-4xl leading-12 font-semibold lg:text-5xl lg:leading-15">
@@ -27,7 +27,7 @@ export default function Home() {
             <Button pill as={Link} href="/about-us">
               View More
             </Button>
-            <Button pill as={Link} href="/register" outline>
+            <Button pill color="dark" as={Link} href="/register" outline>
               Join Us
             </Button>
           </div>
@@ -50,8 +50,8 @@ export default function Home() {
 
       <CountupSection />
 
-      <section className="flex items-center gap-x-15 gap-y-10 max-lg:flex-col max-lg:text-center">
-        <div className="not-intersect:invisible intersect:motion-preset-slide-right-lg flex flex-1/2 justify-center">
+      <section className="flex items-center gap-x-15 gap-y-10 pb-10 max-lg:flex-col max-lg:text-center">
+        <div className="not-intersect:invisible intersect:motion-preset-slide-right-lg flex flex-1/2 justify-center min-sm:max-lg:max-w-[75%]">
           <Image src={welcome} alt="Welcome to RCSA" />
         </div>
         <div className="format dark:format-invert intersect:motion-preset-slide-left-lg flex max-w-none flex-1/2 flex-col">
@@ -75,6 +75,8 @@ export default function Home() {
           </List>
         </div>
       </section>
+
+      <Banner2 />
     </div>
   );
 }

@@ -7,6 +7,9 @@ import Link from "next/link";
 import { Button } from "flowbite-react/components/Button";
 
 import { attributes as banner_1 } from "@/content/banners/banner-1.md";
+import { attributes as banner_2 } from "@/content/banners/banner-2.md";
+
+import logo from "@/assets/images/logo.png";
 
 export const Banner1: React.FC = () => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -43,7 +46,7 @@ export const Banner1: React.FC = () => {
   const imageSrc = require(`@/content/banners/${image}`);
 
   return (
-    <div
+    <section
       ref={divRef}
       className="intersect:motion-preset-slide-up-lg not-intersect:invisible relative flex items-center gap-10 overflow-hidden rounded-2xl px-8 py-10 sm:px-14"
     >
@@ -77,6 +80,59 @@ export const Banner1: React.FC = () => {
       <div className="banner-1-image -my-4 max-md:hidden">
         <Image className="w-auto" hidden src={imageSrc} alt="Banner" />
       </div>
-    </div>
+    </section>
+  );
+};
+
+export const Banner2: React.FC = () => {
+  const { text, show, buttons, background } = banner_2 as Banner2Attributes;
+  if (!show) return;
+
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const bgSrc = require(`@/content/banners/${background}`);
+
+  return (
+    <section className="intersect:motion-preset-slide-up-lg no-dark not-intersect:invisible relative flex items-center gap-6 overflow-hidden rounded-2xl px-8 py-8 max-md:flex-col sm:px-14 sm:py-14 md:gap-10">
+      <Image
+        src={bgSrc}
+        fill
+        alt="Banner"
+        className="-z-10 object-cover object-center opacity-80 dark:opacity-100"
+      />
+
+      <div className="aspect-square w-30 rounded-full bg-white p-5 min-md:max-lg:hidden">
+        <Image className="m-auto" src={logo} alt="RCSA" />
+      </div>
+
+      <h3 className="text-xl font-semibold text-neutral-800 max-sm:text-center">
+        {text}
+      </h3>
+
+      <div className="ml-auto flex gap-4 max-md:mr-auto max-sm:flex-col">
+        {buttons.button1.show && (
+          <Button
+            as={Link}
+            href={buttons.button1.link}
+            pill
+            outline
+            color="dark"
+            className="!border-gray-800 !text-neutral-800 hover:!bg-gray-900 hover:!text-neutral-200 focus:!ring-gray-300"
+            target={buttons.button1.newtab ? "_blank" : "_self"}
+          >
+            {buttons.button1.text}
+          </Button>
+        )}
+
+        <Button
+          as={Link}
+          href={buttons.button2.link}
+          pill
+          target={buttons.button2.newtab ? "_blank" : "_self"}
+          className="focus:!ring-primary-300"
+        >
+          {buttons.button2.text}
+        </Button>
+      </div>
+    </section>
   );
 };

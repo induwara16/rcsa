@@ -42,10 +42,6 @@ const theme = createTheme({
     },
   },
   button: {
-    outlineColor: {
-      default:
-        "hover:border-primary-800 hover:bg-primary-800 focus:ring-primary-300 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border border-neutral-800 text-neutral-800 hover:text-white dark:border-neutral-300 dark:text-neutral-300 dark:hover:text-white",
-    },
     base: "!px-8 py-6 !tracking-wider",
   },
 });
