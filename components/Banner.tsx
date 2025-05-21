@@ -71,7 +71,7 @@ export const Banner1: React.FC = () => {
           href={button.link}
           pill
           target={button.newtab ? "_blank" : "_self"}
-          className="mt-6 mr-auto max-md:ml-auto"
+          className="mt-6 mr-auto max-md:ml-auto focus:!ring-primary-300"
         >
           {button.text}
         </Button>
