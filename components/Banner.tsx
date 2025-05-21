@@ -10,6 +10,8 @@ import { attributes as banner_1 } from "@/content/banners/banner-1.md";
 import { attributes as banner_2 } from "@/content/banners/banner-2.md";
 
 import logo from "@/assets/images/logo.png";
+import banner_1_bg from "@/assets/images/banner-1-bg.jpg";
+import banner_2_bg from "@/assets/images/banner-2-bg.jpg";
 
 export const Banner1: React.FC = () => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -35,12 +37,9 @@ export const Banner1: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const { title, subtitle, background, text, show, button, image } =
+  const { title, subtitle, text, show, button, image } =
     banner_1 as Banner1Attributes;
   if (!show) return;
-
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const bgSrc = require(`@/content/banners/${background}`);
 
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const imageSrc = require(`@/content/banners/${image}`);
@@ -51,9 +50,9 @@ export const Banner1: React.FC = () => {
       className="intersect:motion-preset-slide-up-lg not-intersect:invisible relative flex items-center gap-10 overflow-hidden rounded-2xl px-8 py-10 sm:px-14"
     >
       <Image
-        src={bgSrc}
+        src={banner_1_bg}
         fill
-        alt="Banner"
+        alt=""
         className="-z-10 object-cover object-center opacity-80 dark:opacity-100"
       />
 
@@ -71,7 +70,7 @@ export const Banner1: React.FC = () => {
           href={button.link}
           pill
           target={button.newtab ? "_blank" : "_self"}
-          className="mt-6 mr-auto max-md:ml-auto focus:!ring-primary-300"
+          className="focus:!ring-primary-300 mt-6 mr-auto max-md:ml-auto"
         >
           {button.text}
         </Button>
@@ -85,18 +84,15 @@ export const Banner1: React.FC = () => {
 };
 
 export const Banner2: React.FC = () => {
-  const { text, show, buttons, background } = banner_2 as Banner2Attributes;
+  const { text, show, buttons } = banner_2 as Banner2Attributes;
   if (!show) return;
-
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const bgSrc = require(`@/content/banners/${background}`);
 
   return (
     <section className="intersect:motion-preset-slide-up-lg no-dark not-intersect:invisible relative flex items-center gap-6 overflow-hidden rounded-2xl px-8 py-8 max-md:flex-col sm:px-14 sm:py-14 md:gap-10">
       <Image
-        src={bgSrc}
+        src={banner_2_bg}
         fill
-        alt="Banner"
+        alt=""
         className="-z-10 object-cover object-center opacity-80 dark:opacity-100"
       />
 

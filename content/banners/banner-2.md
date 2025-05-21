@@ -11,5 +11,4 @@ buttons:
     text: Senior Committee
     link: /senior-com
     newtab: false
-background: banner-2-bg.png
 ---
