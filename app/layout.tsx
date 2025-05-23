@@ -4,6 +4,7 @@ import { Exo } from "next/font/google";
 
 import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Particles from "@/components/Particles";
 
 import dynamic from "next/dynamic";
@@ -44,6 +45,17 @@ const theme = createTheme({
   button: {
     base: "!px-8 py-6 !tracking-wider",
   },
+  footer: {
+    icon: {
+      base: "text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white",
+    },
+    divider: {
+      base: "border-gray-300 dark:border-gray-600",
+    },
+    copyright: {
+      base: "text-gray-500 dark:text-gray-400",
+    },
+  },
 });
 
 const IntersectionObserver = dynamic(
@@ -68,6 +80,7 @@ export default function RootLayout({
             <div className="relative !z-20">{children}</div>
             <Particles />
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
