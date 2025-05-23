@@ -14,3 +14,7 @@
 body * {
   @apply motion-duration-1000 transition-colors duration-300;
 }
+
+.dark-invert-img img {
+  @apply dark:invert;
+}

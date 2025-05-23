@@ -76,7 +76,7 @@ export default function RootLayout({
         <IntersectionObserver />
         <ThemeProvider theme={theme}>
           <Navbar />
-          <main className="overflow-hidden bg-white px-5 sm:px-10 md:-mt-16 dark:bg-gray-800">
+          <main className="overflow-hidden bg-white px-5 pb-8 sm:px-10 md:-mt-16 dark:bg-gray-800">
             <div className="relative !z-20">{children}</div>
             <Particles />
           </main>

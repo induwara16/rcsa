@@ -11,17 +11,29 @@ import {
 
 import type { FooterLinkProps } from "flowbite-react";
 
-import { BsFacebook, BsInstagram, BsYoutube, BsWhatsapp } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsInstagram,
+  BsYoutube,
+  BsWhatsapp,
+  BsTwitterX,
+} from "react-icons/bs";
 
 import logo from "@/assets/images/logo.png";
 
+import { attributes as social } from "@/content/social.md";
+
 export const FooterSocial = ({ className }: { className?: string }) => {
+  const { facebook, instagram, youtube, x, whatsapp } =
+    social as SocialAttributes;
+
   return (
     <div className={className}>
-      <FooterIcon href="#" icon={BsFacebook} />
-      <FooterIcon href="#" icon={BsInstagram} />
-      <FooterIcon href="#" icon={BsYoutube} />
-      <FooterIcon href="#" icon={BsWhatsapp} />
+      <FooterIcon href={facebook} target="__blank" icon={BsFacebook} />
+      <FooterIcon href={instagram} target="__black" icon={BsInstagram} />
+      <FooterIcon href={youtube} target="__black" icon={BsYoutube} />
+      <FooterIcon href={x} target="__black" icon={BsTwitterX} />
+      <FooterIcon href={whatsapp} target="__black" icon={BsWhatsapp} />
     </div>
   );
 };
@@ -32,6 +44,7 @@ export const FooterBrand = () => {
   return (
     <FB
       href="/"
+      className="dark-invert-img"
       src={logo.src}
       alt="RCSA Logo"
       name="RCSA"
@@ -64,6 +77,7 @@ export const FooterLink = ({ children, href }: FooterLinkProps) => {
 
   return (
     <FL
+      className="dark:text-gray-300"
       href={href}
       onClick={(e) => {
         e.preventDefault();

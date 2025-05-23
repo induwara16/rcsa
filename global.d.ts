@@ -47,3 +47,11 @@ interface Banner2Attributes {
     };
   };
 }
+
+interface SocialAttributes {
+  facebook: string;
+  x: string;
+  youtube: string;
+  instagram: string;
+  whatsapp: string;
+}

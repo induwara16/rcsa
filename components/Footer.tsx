@@ -15,7 +15,7 @@ import {
 export default function _Footer() {
   return (
     <Footer
-      className="relative z-20 mt-8 !rounded-none bg-gray-100 sm:px-8 sm:pt-10 sm:pb-8 dark:bg-gray-700"
+      className="relative z-20 !rounded-none bg-gray-100 sm:px-8 sm:pt-10 sm:pb-8 dark:bg-gray-700"
       container
     >
       <div className="not-intersect:invisible intersect:motion-preset-fade-lg w-full">
@@ -45,6 +45,7 @@ export default function _Footer() {
               <FooterLinkGroup col>
                 <FooterLink href="#">Forza Scientia&apos;25</FooterLink>
                 <FooterLink href="#">SCI-GENIX&apos;25</FooterLink>
+                <FooterLink href="#">SCI-WAVE&apos;25</FooterLink>
               </FooterLinkGroup>
             </div>
           </div>

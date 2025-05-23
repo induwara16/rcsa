@@ -96,6 +96,19 @@ collections:
   #           - {label: Title, name: title, widget: string}
   #           - {label: Description, name: description, widget: text, required: false}
   #           - {label: Date, name: date, widget: datetime}
+  - name: "social"
+    label: "Social Links"
+    description: Social Media Links
+    files:
+      - label: "Social Links"
+        name: social
+        file: content/social.md
+        fields:
+          - { label: "Facebook", name: "facebook", widget: string }
+          - { label: "Instagram", name: "instagram", widget: string }
+          - { label: "X", name: "x", widget: string }
+          - { label: "YouTube", name: "youtube", widget: string }
+          - { label: "WhatsApp", name: "whatsapp", widget: string }
   - name: "banners"
     label: "Banners"
     description: Banner 1 and Banner 2
