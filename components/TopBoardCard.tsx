@@ -24,7 +24,7 @@ export default function TopBoardCard({
       <h5 className="my-0 text-center text-lg leading-6 font-semibold">
         {person.name}
       </h5>
-      <p className="my-0 text-center text-sm font-medium text-gray-400 dark:opacity-60">
+      <p className="my-0 text-center text-sm font-medium text-gray-300 dark:opacity-80">
         {person.position.toUpperCase()}
       </p>
     </Card>
