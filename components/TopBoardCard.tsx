@@ -14,7 +14,7 @@ export default function TopBoardCard({
   return (
     <Card
       onClick={() => router.push("/top-board")}
-      className="flex w-60 flex-col items-center p-3 shadow-lg !transition-transform hover:scale-110 hover:cursor-pointer hover:opacity-80"
+      className="flex w-60 flex-col items-center p-3 shadow-lg !transition hover:scale-110 hover:cursor-pointer hover:opacity-80"
     >
       <Image
         {...(person.photo as ImageInfo)}
