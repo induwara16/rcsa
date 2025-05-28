@@ -21,10 +21,10 @@ export default function TopBoardCard({
         alt={person.name}
         className="mx-auto my-2 size-30 rounded-full object-cover"
       />
-      <h5 className="my-0 text-center text-lg leading-6 font-semibold">
+      <h5 className="my-0 text-center text-lg leading-6 font-semibold text-neutral-800 dark:text-gray-200">
         {person.name}
       </h5>
-      <p className="my-0 text-center text-sm font-medium text-gray-300 dark:opacity-80">
+      <p className="my-0 text-center text-sm font-medium text-gray-500 dark:text-gray-400">
         {person.position.toUpperCase()}
       </p>
     </Card>
