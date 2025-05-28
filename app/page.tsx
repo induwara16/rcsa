@@ -5,6 +5,7 @@ import Image from "next/image";
 import CountupSection from "@/components/CountupSection";
 import TickListItem from "@/components/TickListItem";
 import TopBoardCard from "@/components/TopBoardCard";
+import Carousel from "@/components/Carousel";
 import { Banner1, Banner2 } from "@/components/Banner";
 
 import about_us from "@/assets/images/about-us.png";
@@ -87,7 +88,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="format dark:format-invert flex max-w-none flex-col items-center pb-10 text-center">
+      <section className="format dark:format-invert flex max-w-none flex-col items-center text-center">
         <h1 className="mb-0 text-3xl leading-12 font-semibold lg:text-4xl lg:leading-15">
           Our Top Board
         </h1>
@@ -96,10 +97,12 @@ export default async function Home() {
           mission forward.
         </p>
 
-        <div className="mt-3 flex flex-wrap items-stretch justify-center gap-4">
-          {board.map((person) => (
-            <TopBoardCard key={person.name} person={person} />
-          ))}
+        <div className="mx-auto -mt-2 w-full px-4">
+          <Carousel>
+            {board.map((person) => (
+              <TopBoardCard key={person.name} person={person} />
+            ))}
+          </Carousel>
         </div>
       </section>
 

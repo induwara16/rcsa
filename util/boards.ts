@@ -15,9 +15,12 @@ export function getAllBoards(): Record<string, BoardAttributes> {
     const board = require(`@/content/boards/${fullPath}`)
       .attributes as BoardAttributes;
 
-    board.group_pic.photo = getImageInfo(board.group_pic.photo.toString());
+    if (typeof board.group_pic.photo === "string")
+      board.group_pic.photo = getImageInfo(board.group_pic.photo as string);
+
     for (const person of board.board) {
-      person.photo = getImageInfo(person.photo.toString());
+      if (typeof person.photo === "string")
+        person.photo = getImageInfo(person.photo as string);
     }
 
     return board;
