@@ -18,7 +18,6 @@ collections:
     label_singular: Top Board
     description: Top Board Details
     folder: content/boards
-    path: "{{slug}}/board"
     media_folder: "/public/uploads/board"
     public_folder: "/uploads/board"
     create: true

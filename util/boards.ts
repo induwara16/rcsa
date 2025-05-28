@@ -6,26 +6,13 @@ import { getImageInfo } from "./image";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/boards");
 
-function walkDir(dir: string, filelist: string[] = []): string[] {
-  const files = fs.readdirSync(dir);
-  files.forEach((file) => {
-    const fullPath = path.join(dir, file);
-    const stat = fs.statSync(fullPath);
-    if (stat.isDirectory()) {
-      walkDir(fullPath, filelist);
-    } else if (file.endsWith(".md")) {
-      filelist.push(fullPath);
-    }
-  });
-  return filelist;
-}
-
 export function getAllBoards(): Record<string, BoardAttributes> {
-  const filePaths = walkDir(CONTENT_DIR);
+  const filePaths = fs
+    .readdirSync(CONTENT_DIR)
+    .filter((file) => file.endsWith(".md"));
 
   const boards = filePaths.map((fullPath) => {
-    const relativePath = path.relative(CONTENT_DIR, fullPath);
-    const board = require(`@/content/boards/${relativePath}`)
+    const board = require(`@/content/boards/${fullPath}`)
       .attributes as BoardAttributes;
 
     board.group_pic.photo = getImageInfo(board.group_pic.photo.toString());
