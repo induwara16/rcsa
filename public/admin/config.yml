@@ -2,7 +2,7 @@ local_backend: true
 
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: master # Branch to update (optional; defaults to master)
 
 media_folder: content/gallery
 public_folder: /gallery
@@ -12,28 +12,37 @@ site_url: https://rcsa-new.netlify.app
 display_url: /
 
 collections:
-  # - name: boards
-  #   label: Boards
-  #   identifier_field: year
-  #   label_singular: Board
-  #   description: Board Details
-  #   folder: src/content/boards
-  #   create: true
-  #   fields:
-  #   - label: Year
-  #     name: 'year'
-  #     widget: number
-  #   - label: 'Office Bearers'
-  #     name: "board"
-  #     widget: list
-  #     fields:
-  #       - { label: "Position", name: "position", widget: "string"}
-  #       - { label: "Name", name: "name", widget: "string"}
-  #       - label: 'Photo'
-  #         name: 'photo'
-  #         widget: 'image'
-  #         media_folder: /src/content/gallery
-  #         public_folder: ''
+  - name: boards
+    label: Top Boards
+    identifier_field: year
+    label_singular: Top Board
+    description: Top Board Details
+    folder: content/boards
+    path: "{{slug}}/board"
+    media_folder: ""
+    public_folder: ""
+    create: true
+    fields:
+      - label: Year
+        name: "year"
+        widget: number
+      - label: Group Photo
+        name: group-pic
+        widget: object
+        fields:
+          - { label: Show, name: show, widget: boolean, default: true }
+          - label: "Photo"
+            name: "photo"
+            widget: "image"
+      - label: "Office Bearers"
+        name: "board"
+        widget: list
+        fields:
+          - { label: "Position", name: "position", widget: "string" }
+          - { label: "Name", name: "name", widget: "string" }
+          - label: "Photo"
+            name: "photo"
+            widget: "image"
   # - name: projects
   #   label: Projects
   #   label_singular: Project
