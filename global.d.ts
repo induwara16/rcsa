@@ -55,3 +55,24 @@ interface SocialAttributes {
   instagram: string;
   whatsapp: string;
 }
+
+interface ImageInfo {
+  src: string;
+  width: number;
+  height: number;
+}
+
+interface BoardAttributes {
+  year: number;
+  group_pic: {
+    show: boolean;
+    photo: string | ImageInfo;
+  };
+  board: [
+    {
+      name: string;
+      position: string;
+      photo: string | ImageInfo;
+    },
+  ];
+}

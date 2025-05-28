@@ -4,13 +4,24 @@ import Image from "next/image";
 
 import CountupSection from "@/components/CountupSection";
 import TickListItem from "@/components/TickListItem";
+import TopBoardCard from "@/components/TopBoardCard";
 import { Banner1, Banner2 } from "@/components/Banner";
 
 import about_us from "@/assets/images/about-us.png";
 import about_us_lg from "@/assets/images/about-us-lg.png";
 import welcome from "@/assets/images/welcome.png";
 
-export default function Home() {
+import { getAllBoards } from "@/util/boards";
+
+async function getLatestBoard() {
+  const boards = getAllBoards();
+  const sorted = Object.keys(boards).sort((a, b) => Number(b) - Number(a));
+  return boards[sorted[0]];
+}
+
+export default async function Home() {
+  const { board } = await getLatestBoard();
+
   return (
     <div className="flex flex-col gap-y-10 pb-10">
       <section className="flex min-h-[100vh] items-start gap-y-10 py-10 max-md:flex-col max-md:text-center">
@@ -73,6 +84,22 @@ export default function Home() {
             <TickListItem>Field Trips</TickListItem>
             <TickListItem>Research</TickListItem>
           </List>
+        </div>
+      </section>
+
+      <section className="format dark:format-invert flex max-w-none flex-col items-center pb-10 text-center">
+        <h1 className="mb-0 text-3xl leading-12 font-semibold lg:text-4xl lg:leading-15">
+          Our Top Board
+        </h1>
+        <p className="tracking-wider sm:text-lg">
+          Meet the dedicated individuals who lead our association and drive our
+          mission forward.
+        </p>
+
+        <div className="mt-3 flex flex-wrap items-stretch justify-center gap-4">
+          {board.map((person) => (
+            <TopBoardCard key={person.name} person={person} />
+          ))}
         </div>
       </section>
 

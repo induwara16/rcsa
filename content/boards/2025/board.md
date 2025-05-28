@@ -1,0 +1,37 @@
+---
+year: 2025
+group_pic:
+  show: false
+  photo: /uploads/board/dsc_1992.jpg
+board:
+  - position: Chairman
+    name: Enul Lunuwila
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Secretary
+    name: Ushenya Madanayake
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Treasurer
+    name: Kavindu Rasanjana
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Assistant Chairman
+    name: Vinuja Wathsuka
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Assistant Secretary
+    name: Sanija Wanniarachchi
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Assistant Treasurer
+    name: Danuja Kaluarachchi
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Chief Organizer
+    name: Dahamsith Gamage
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Quiz Team Organizer
+    name: Senitha Deegala
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: Student Coordinator
+    name: Udan Kanagarathna
+    photo: /uploads/board/avatar-default-symbolic.svg
+  - position: IT Coordinator
+    name: Induwara Jayaweera
+    photo: /uploads/board/avatar-default-symbolic.svg
+---

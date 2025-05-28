@@ -17,12 +17,14 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "flowbite-react": "^0.11.7",
+    "frontmatter": "^0.0.3",
     "lottie-react": "^2.4.1",
     "next": "^15.3.0",
     "react": "^19.1.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "react-multi-carousel": "^2.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",

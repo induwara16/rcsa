@@ -1,13 +1,13 @@
 ---
 show: true
-subtitle: QUANTUMCAST
-title: Our Annual Podcast
+subtitle: STAY CONNECTED ON
+title: Our WhatsApp Channel
 text: >
-  QuantumCast is RCSA’s annual podcast series exploring breakthroughs in
-  science, technology, and innovation — listen now to stay inspired.
+  Join the official RCSA WhatsApp Channel for instant updates on events, science
+  news, opportunities, and more — stay informed, stay ahead.
 button:
-  text: Listen Now
-  link: https://www.youtube.com/watch?v=MBejOAfYuSU&list=PLBOIogguA8B1FnxQvwU-hp3V5QcaUwcB6
+  text: Join Now
+  link: https://whatsapp.com/channel/0029Vb6kwCKFy72F7uCqCD0j
   newtab: true
 image: banner-1-image.png
 ---

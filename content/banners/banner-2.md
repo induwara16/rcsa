@@ -3,12 +3,12 @@ show: true
 text: Join The Royal College Science Association
 buttons:
   button1:
-    show: true
+    show: false
     text: Register Now
     link: /join-us
     newtab: false
   button2:
-    text: Senior Committee
-    link: /senior-com
+    text: Register Now
+    link: /join-us
     newtab: false
 ---

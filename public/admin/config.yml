@@ -19,15 +19,15 @@ collections:
     description: Top Board Details
     folder: content/boards
     path: "{{slug}}/board"
-    media_folder: ""
-    public_folder: ""
+    media_folder: "/public/uploads/board"
+    public_folder: "/uploads/board"
     create: true
     fields:
       - label: Year
         name: "year"
         widget: number
       - label: Group Photo
-        name: group-pic
+        name: group_pic
         widget: object
         fields:
           - { label: Show, name: show, widget: boolean, default: true }
