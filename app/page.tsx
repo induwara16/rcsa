@@ -89,13 +89,15 @@ export default async function Home() {
       </section>
 
       <section className="format dark:format-invert flex max-w-none flex-col items-center text-center">
-        <h1 className="mb-0 text-3xl leading-12 font-semibold lg:text-4xl lg:leading-15">
-          Our Top Board
-        </h1>
-        <p className="tracking-wider sm:text-lg">
-          Meet the dedicated individuals who lead our association and drive our
-          mission forward.
-        </p>
+        <div className="not-intersect:invisible intersect:motion-preset-fade-lg">
+          <h1 className="mb-0 text-3xl leading-12 font-semibold lg:text-4xl lg:leading-15">
+            Our Top Board
+          </h1>
+          <p className="tracking-wider sm:text-lg">
+            Meet the dedicated individuals who lead our association and drive
+            our mission forward.
+          </p>
+        </div>
 
         <div className="mx-auto -mt-2 w-full sm:px-4">
           <Carousel>

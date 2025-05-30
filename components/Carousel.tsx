@@ -45,7 +45,12 @@ const Carousel: React.FC<CarouselProps> = ({
       {...swiperOptions}
     >
       {children.map((child, index) => (
-        <SwiperSlide key={index}>{child}</SwiperSlide>
+        <SwiperSlide
+          className="not-intersect:opacity-0 intersect:motion-opacity-in-0 intersect:motion-scale-in-0"
+          key={index}
+        >
+          {child}
+        </SwiperSlide>
       ))}
     </Swiper>
   );
