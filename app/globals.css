@@ -12,7 +12,7 @@
 }
 
 body * {
-  @apply motion-duration-1000 transition duration-500;
+  @apply motion-duration-1000 transition-colors duration-500;
 }
 
 .dark-invert-img img {
