@@ -14,7 +14,7 @@ export default function TopBoardCard({
   return (
     <Card
       onClick={() => router.push("/top-board")}
-      className="flex h-80 w-60 flex-col items-center p-3 shadow-lg !transition hover:scale-110 hover:cursor-pointer hover:opacity-80"
+      className="flex h-full flex-col items-center p-3 shadow-lg !transition *:!p-3 hover:scale-110 hover:cursor-pointer hover:opacity-80 *:sm:!p-6"
     >
       <Image
         {...(person.photo as ImageInfo)}
@@ -24,7 +24,7 @@ export default function TopBoardCard({
       <h5 className="my-0 text-center text-lg leading-6 font-semibold text-black/80 dark:text-gray-200">
         {person.name}
       </h5>
-      <p className="my-0 text-center text-sm font-medium text-gray-500 dark:text-gray-400">
+      <p className="my-0 text-center text-sm font-medium text-gray-500 dark:text-gray-400/80">
         {person.position.toUpperCase()}
       </p>
     </Card>

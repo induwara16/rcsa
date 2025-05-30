@@ -97,7 +97,7 @@ export default async function Home() {
           mission forward.
         </p>
 
-        <div className="mx-auto -mt-2 w-full px-4">
+        <div className="mx-auto -mt-2 w-full sm:px-4">
           <Carousel>
             {board.map((person) => (
               <TopBoardCard key={person.name} person={person} />

@@ -12,9 +12,32 @@
 }
 
 body * {
-  @apply motion-duration-1000 transition-colors duration-300;
+  @apply motion-duration-1000 transition duration-300;
 }
 
 .dark-invert-img img {
   @apply dark:invert;
+}
+
+/* carousel */
+.swiper-pagination {
+  @apply !bottom-0;
+}
+/* Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  @apply !-mt-10 !size-14 !rounded-full !bg-gray-100 hover:!bg-gray-200 dark:!bg-gray-700/80 hover:dark:!bg-gray-600/80;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  @apply !text-2xl hover:!text-3xl;
+}
+
+.swiper-button-disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+  @apply !bg-gray-600 dark:!bg-gray-400;
 }

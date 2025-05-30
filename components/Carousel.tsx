@@ -1,10 +1,12 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Keyboard } from "swiper/modules";
+import { Navigation, Autoplay, Keyboard, Pagination } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
+import "swiper/css/pagination";
 
 import type { SwiperOptions } from "swiper/types";
 
@@ -16,24 +18,34 @@ interface CarouselProps extends SwiperOptions {
 const Carousel: React.FC<CarouselProps> = ({
   children,
   className = "",
+  pagination = true,
   ...swiperOptions
 }) => {
   return (
     <Swiper
-      modules={[Navigation, Autoplay, Keyboard]}
+      modules={[Navigation, Autoplay, Keyboard, Pagination]}
       autoplay={{ pauseOnMouseEnter: true }}
       rewind
-      navigation
-      slidesPerView="auto"
+      navigation={{
+        enabled: true,
+        hideOnClick: false,
+      }}
       keyboard
+      breakpoints={{
+        0: { navigation: { enabled: false }, slidesPerView: 1 },
+        320: { navigation: true, slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+        1280: { slidesPerView: 4 },
+      }}
+      slidesPerView={1}
       spaceBetween={20}
-      className={`items-stretch overflow-y-visible ${className}`}
+      pagination={pagination ? { clickable: true } : { enabled: false }}
+      className={`!pt-8 ${pagination ? "!pb-12" : "!pb-8"} ${className}`}
       {...swiperOptions}
     >
       {children.map((child, index) => (
-        <SwiperSlide className="!z-40 !h-full !w-auto py-8" key={index}>
-          {child}
-        </SwiperSlide>
+        <SwiperSlide key={index}>{child}</SwiperSlide>
       ))}
     </Swiper>
   );
