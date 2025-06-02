@@ -81,7 +81,7 @@ export const FooterLink = ({ children, href }: FooterLinkProps) => {
       href={href}
       onClick={(e) => {
         e.preventDefault();
-        router.push("/");
+        router.push(href);
       }}
     >
       {children}
