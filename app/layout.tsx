@@ -13,6 +13,7 @@ import dynamic from "next/dynamic";
 const exo = Exo({
   variable: "--font-exo",
   subsets: ["latin"],
+  fallback: ["Exo", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -78,7 +79,7 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <Navbar />
           <Breadcrumbs />
-          <main className="overflow-hidden bg-white px-5 pb-8 sm:px-10 md:-mt-16 dark:bg-gray-800">
+          <main className="overflow-hidden bg-white px-5 pb-8 sm:px-10 dark:bg-gray-800">
             <div className="relative !z-20">{children}</div>
             <Particles />
           </main>

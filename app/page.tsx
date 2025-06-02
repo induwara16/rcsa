@@ -20,11 +20,11 @@ async function getLatestBoard() {
 }
 
 export default async function Home() {
-  const { board } = (await getLatestBoard()) as BoardAttributes;
+  const { year, board } = (await getLatestBoard()) as BoardAttributes;
 
   return (
     <div className="flex flex-col gap-y-10 pb-10">
-      <section className="flex min-h-[100vh] items-start gap-y-10 py-10 max-md:flex-col max-md:text-center">
+      <section className="flex min-h-[100vh] items-start gap-y-10 pb-10 max-lg:pt-10 max-md:flex-col max-md:text-center">
         <div className="format dark:format-invert intersect:motion-preset-slide-right-lg my-auto flex max-w-none flex-7/16 flex-col gap-x-4">
           <h1 className="mb-0 text-4xl leading-12 font-semibold lg:text-5xl lg:leading-15">
             Royal College Science Association
@@ -101,7 +101,16 @@ export default async function Home() {
         <div className="mx-auto -mt-2 w-full sm:px-4">
           <Carousel>
             {board.map((person) => (
-              <TopBoardCard key={person.name} person={person} />
+              <Link
+                className="!no-underline"
+                key={person.name}
+                href={`/top-board/${year}`}
+              >
+                <TopBoardCard
+                  person={person}
+                  className="!transition hover:scale-110 hover:cursor-pointer hover:opacity-80"
+                />
+              </Link>
             ))}
           </Carousel>
         </div>

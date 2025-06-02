@@ -1,20 +1,16 @@
-"use client";
-
 import { Card } from "flowbite-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 export default function TopBoardCard({
   person,
+  className = "",
 }: {
   person: BoardAttributes["board"][0];
+  className?: string;
 }) {
-  const router = useRouter();
-
   return (
     <Card
-      onClick={() => router.push("/top-board")}
-      className="flex h-full flex-col items-center p-3 shadow-lg !transition *:!p-3 hover:scale-110 hover:cursor-pointer hover:opacity-80 *:sm:!p-6"
+      className={`${className} flex h-full flex-col items-center p-3 shadow-lg *:!p-3 *:sm:!p-6`}
     >
       <Image
         {...(person.photo as ImageInfo)}

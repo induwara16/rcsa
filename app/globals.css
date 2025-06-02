@@ -11,19 +11,24 @@
   --font-display: var(--font-exo);
 }
 
+.dark-invert-img img {
+  @apply dark:invert;
+}
+
+/* animation */
+
 body * {
   @apply motion-duration-1000 transition-colors duration-500;
 }
 
-.dark-invert-img img {
-  @apply dark:invert;
+.intersect\:motion-preset-fade-lg {
+  @apply !motion-delay-300;
 }
 
 /* carousel */
 .swiper-pagination {
   @apply !bottom-0;
 }
-/* Swiper navigation buttons */
 .swiper-button-next,
 .swiper-button-prev {
   @apply !-mt-10 !size-14 !rounded-full !bg-gray-100 hover:!bg-gray-200 dark:!bg-gray-700/80 hover:dark:!bg-gray-600/80;
