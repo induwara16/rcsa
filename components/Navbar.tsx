@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-
 import {
   DarkThemeToggle,
   Dropdown,
@@ -18,12 +16,9 @@ import Image from "next/image";
 import logo from "@/assets/images/logo.png";
 
 export default function Navbar_() {
-  const navbar = useRef<HTMLDivElement>(null);
-
   return (
     <Navbar
       className="intersect:*:motion-preset-blur-down-md intersect-once sticky top-0 z-100 border-b border-b-gray-700/30 !px-6 !py-0 dark:border-white/20"
-      ref={navbar}
       fluid
     >
       <NavbarBrand as={Link} href="/" className="py-2.5">

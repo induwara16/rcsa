@@ -12,16 +12,15 @@ import about_us from "@/assets/images/about-us.png";
 import about_us_lg from "@/assets/images/about-us-lg.png";
 import welcome from "@/assets/images/welcome.png";
 
-import { getAllBoards } from "@/util/boards";
+import { getAllBoardYears, getBoardByYear } from "@/util/boards";
 
 async function getLatestBoard() {
-  const boards = getAllBoards();
-  const sorted = Object.keys(boards).sort((a, b) => Number(b) - Number(a));
-  return boards[sorted[0]];
+  const boards = getAllBoardYears();
+  return getBoardByYear(boards[0]);
 }
 
 export default async function Home() {
-  const { board } = await getLatestBoard();
+  const { board } = (await getLatestBoard()) as BoardAttributes;
 
   return (
     <div className="flex flex-col gap-y-10 pb-10">

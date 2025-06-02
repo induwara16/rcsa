@@ -6,6 +6,7 @@ import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Particles from "@/components/Particles";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 import dynamic from "next/dynamic";
 
@@ -76,6 +77,7 @@ export default function RootLayout({
         <IntersectionObserver />
         <ThemeProvider theme={theme}>
           <Navbar />
+          <Breadcrumbs />
           <main className="overflow-hidden bg-white px-5 pb-8 sm:px-10 md:-mt-16 dark:bg-gray-800">
             <div className="relative !z-20">{children}</div>
             <Particles />
