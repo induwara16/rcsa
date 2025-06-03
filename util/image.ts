@@ -2,11 +2,11 @@ import fs from "fs";
 import path from "path";
 import sizeOf from "image-size";
 
-export function getImageInfo(imagePath: string): ImageInfo | string {
+export async function getImageInfo(imagePath: string): Promise<ImageInfo | null> {
   const resolvedPath = path.resolve(path.join("public", imagePath));
 
   if (!fs.existsSync(resolvedPath)) {
-    return "";
+    return null;
   }
 
   const imageBuffer = fs.readFileSync(resolvedPath);

@@ -3,8 +3,13 @@ import { Button } from "flowbite-react";
 
 import Gallery from "@/components/Gallery";
 import TopBoardCard from "@/components/TopBoardCard";
+import { BoardPagination } from "@/components/Pagination";
 
-import { getAllBoardYears, getBoardByYear } from "@/util/boards";
+import {
+  getAdjacentBoardYears,
+  getAllBoardYears,
+  getBoardByYear,
+} from "@/util/boards";
 
 interface PageProps {
   params: Promise<{
@@ -15,24 +20,39 @@ interface PageProps {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return getAllBoardYears().map((year: string) => ({
+  const years = await getAllBoardYears();
+  return years.map((year: string) => ({
     year,
   }));
 }
 
 const Page: React.FC<PageProps> = async ({ params }) => {
   const { year } = await params;
-  const { board, group_pic } = getBoardByYear(year)!;
+  const { board, group_pic } = (await getBoardByYear(year))!;
+  const { prev, next } = await getAdjacentBoardYears(year);
 
   return (
     <div className="relative flex flex-col gap-y-10 pt-10 pb-5">
-      <div className="flex items-center justify-between gap-4 max-sm:flex-col">
+      <div className="flex items-center justify-between gap-4 max-md:flex-col">
         <div className="format dark:format-invert">
-          <h1 className="text-center max-sm:text-3xl">Top Board of {year}</h1>
+          <h1 className="text-center max-lg:mb-3 max-lg:!text-3xl">
+            Top Board of {year}
+          </h1>
         </div>
-        <Button pill color="dark" outline as={Link} href={`/projects/${year}`}>
-          The Year
-        </Button>
+
+        <div className="flex gap-3 max-md:flex-col">
+          <Button
+            pill
+            color="dark"
+            outline
+            as={Link}
+            href={`/projects/${year}`}
+          >
+            The Year
+          </Button>
+
+          <BoardPagination next={next} prev={prev} />
+        </div>
       </div>
 
       {group_pic.show && (

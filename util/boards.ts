@@ -6,7 +6,7 @@ import { getImageInfo } from "./image";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/boards");
 
-export function getAllBoardYears(): string[] {
+export async function getAllBoardYears(): Promise<string[]> {
   const filePaths = fs
     .readdirSync(CONTENT_DIR)
     .filter((file) => file.endsWith(".md"));
@@ -16,7 +16,9 @@ export function getAllBoardYears(): string[] {
     .sort((a, b) => Number(b) - Number(a));
 }
 
-export function getBoardByYear(year: string): BoardAttributes | null {
+export async function getBoardByYear(
+  year: string,
+): Promise<BoardAttributes | null> {
   const filePath = path.join(CONTENT_DIR, `${year}.md`);
   if (!fs.existsSync(filePath)) return null;
 
@@ -25,12 +27,31 @@ export function getBoardByYear(year: string): BoardAttributes | null {
   ).attributes;
 
   if (typeof board.group_pic.photo === "string")
-    board.group_pic.photo = getImageInfo(board.group_pic.photo as string);
+    board.group_pic.photo = (await getImageInfo(
+      board.group_pic.photo as string,
+    ))!;
 
   for (const person of board.board) {
     if (typeof person.photo === "string")
-      person.photo = getImageInfo(person.photo as string);
+      person.photo = (await getImageInfo(person.photo as string))!;
   }
 
   return board;
+}
+
+export async function getAdjacentBoardYears(
+  year: string,
+): Promise<{ prev: string | null; next: string | null }> {
+  const years = (await getAllBoardYears()).map(Number).sort((a, b) => a - b);
+  const currentYear = Number(year);
+
+  let prev: string | null = null;
+  let next: string | null = null;
+
+  for (const y of years) {
+    if (y < currentYear) prev = y.toString();
+    if (y > currentYear && next === null) next = y.toString();
+  }
+
+  return { prev, next };
 }

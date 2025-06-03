@@ -15,7 +15,7 @@ import welcome from "@/assets/images/welcome.png";
 import { getAllBoardYears, getBoardByYear } from "@/util/boards";
 
 async function getLatestBoard() {
-  const boards = getAllBoardYears();
+  const boards = await getAllBoardYears();
   return getBoardByYear(boards[0]);
 }
 
