@@ -3,8 +3,6 @@ import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 import { getAllBoardYears } from "./util/boards";
 
-const year = getAllBoardYears()[0];
-
 const nextConfig: NextConfig = {
   webpack: (cfg) => {
     cfg.module.rules.push({
@@ -14,13 +12,17 @@ const nextConfig: NextConfig = {
     });
     return cfg;
   },
-  redirects: async () => [
-    {
-      source: "/top-board",
-      destination: `/top-board/${year}`,
-      permanent: false,
-    },
-  ],
+  redirects: async () => {
+    const year = (await getAllBoardYears())[0];
+
+    return [
+      {
+        source: "/top-board",
+        destination: `/top-board/${year}`,
+        permanent: false,
+      },
+    ]
+  },
 };
 
 export default withFlowbiteReact(nextConfig);
