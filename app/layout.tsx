@@ -1,19 +1,22 @@
-import { createTheme, ThemeModeScript, ThemeProvider } from "flowbite-react";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Exo } from "next/font/google";
 
+import { createTheme, ThemeModeScript, ThemeProvider } from "flowbite-react";
+
 import "@/app/globals.css";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Particles from "@/components/Particles";
 import Breadcrumbs from "@/components/Breadcrumbs";
-
-import dynamic from "next/dynamic";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const exo = Exo({
   variable: "--font-exo",
   subsets: ["latin"],
-  fallback: ["Exo", "sans-serif"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -83,6 +86,7 @@ export default function RootLayout({
             <div className="relative !z-20">{children}</div>
             <Particles />
           </main>
+          <ScrollToTop />
           <Footer />
         </ThemeProvider>
       </body>

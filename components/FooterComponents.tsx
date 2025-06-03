@@ -7,9 +7,8 @@ import {
   FooterBrand as FB,
   FooterCopyright as FC,
   FooterLink as FL,
+  type FooterLinkProps,
 } from "flowbite-react";
-
-import type { FooterLinkProps } from "flowbite-react";
 
 import {
   BsFacebook,
@@ -20,7 +19,6 @@ import {
 } from "react-icons/bs";
 
 import logo from "@/assets/images/logo.png";
-
 import { attributes as social } from "@/content/social.md";
 
 export const FooterSocial = ({ className }: { className?: string }) => {
@@ -44,7 +42,7 @@ export const FooterBrand = () => {
   return (
     <FB
       href="/"
-      className="dark-invert-img"
+      className="dark:format-img:invert"
       src={logo.src}
       alt="RCSA Logo"
       name="RCSA"

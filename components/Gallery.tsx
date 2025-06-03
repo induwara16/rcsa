@@ -3,6 +3,8 @@
 import Image, { type ImageProps } from "next/image";
 import { useState } from "react";
 
+import { MdZoomIn } from "react-icons/md";
+
 import { RowsPhotoAlbum } from "react-photo-album";
 import "react-photo-album/rows.css";
 
@@ -62,7 +64,7 @@ export default function Gallery({ pics }: { pics: Pic[] }) {
           image: function (props, { index, height }) {
             return (
               <div
-                className={`intersect:motion-preset-fade-lg not-intersect:invisible relative flex h-full overflow-hidden rounded-lg bg-black shadow-md ${index > 3 ? "max-sm:hidden" : ""}`}
+                className={`intersect:motion-preset-fade-lg not-intersect:invisible group relative flex h-full overflow-hidden rounded-lg bg-black shadow-md ${index > 3 ? "max-sm:hidden" : ""} `}
                 style={{ height }}
               >
                 <Image
@@ -71,6 +73,9 @@ export default function Gallery({ pics }: { pics: Pic[] }) {
                   className="object-cover"
                   alt=""
                 />
+
+                <div className="absolute inset-0 bg-black/50 opacity-0 !transition-opacity group-hover:opacity-100" />
+                <MdZoomIn className="pointer-events-none relative z-100 m-auto size-18 text-gray-200 opacity-0 drop-shadow-2xl drop-shadow-white !transition group-hover:opacity-100" />
               </div>
             );
           },

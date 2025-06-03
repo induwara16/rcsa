@@ -11,18 +11,13 @@
   --font-display: var(--font-exo);
 }
 
-.dark-invert-img img {
-  @apply dark:invert;
+.format {
+  @apply format-headings:font-semibold;
 }
 
 /* animation */
-
 body * {
-  @apply motion-duration-1000 transition-colors duration-500;
-}
-
-.intersect\:motion-preset-fade-lg {
-  @apply !motion-delay-300;
+  @apply !motion-duration-1000 !motion-delay-200 transition-colors duration-500 ease-in-out;
 }
 
 /* carousel */
