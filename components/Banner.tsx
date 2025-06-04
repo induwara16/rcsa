@@ -104,7 +104,7 @@ export const Banner2: React.FC = () => {
       </h3>
 
       <div className="ml-auto flex gap-4 max-md:mr-auto max-sm:flex-col">
-        {buttons.button1.show && (
+        {buttons.button1.text && (
           <Button
             as={Link}
             href={buttons.button1.link}
@@ -118,15 +118,17 @@ export const Banner2: React.FC = () => {
           </Button>
         )}
 
-        <Button
-          as={Link}
-          href={buttons.button2.link}
-          pill
-          target={buttons.button2.newtab ? "_blank" : "_self"}
-          className="focus:!ring-primary-300"
-        >
-          {buttons.button2.text}
-        </Button>
+        {buttons.button2.text && (
+          <Button
+            as={Link}
+            href={buttons.button2.link}
+            pill
+            target={buttons.button2.newtab ? "_blank" : "_self"}
+            className="focus:!ring-primary-300"
+          >
+            {buttons.button2.text}
+          </Button>
+        )}
       </div>
     </section>
   );

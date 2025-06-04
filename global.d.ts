@@ -34,13 +34,11 @@ interface Banner2Attributes {
   show: boolean;
   buttons: {
     button1: {
-      show: boolean;
       text: string;
       link: string;
       newtab: boolean;
     };
     button2: {
-      show: boolean;
       text: string;
       link: string;
       newtab: boolean;
@@ -64,10 +62,7 @@ interface ImageInfo {
 
 interface BoardAttributes {
   year: number;
-  group_pic: {
-    show: boolean;
-    photo: string | ImageInfo;
-  };
+  group_pic: string | ImageInfo;
   board: [
     {
       name: string;

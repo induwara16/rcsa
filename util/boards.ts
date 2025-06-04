@@ -26,14 +26,12 @@ export async function getBoardByYear(
     `@/content/boards/${year}.md`,
   ).attributes;
 
-  if (typeof board.group_pic.photo === "string")
-    board.group_pic.photo = (await getImageInfo(
-      board.group_pic.photo as string,
-    ))!;
+  if (typeof board.group_pic === "string" && board.group_pic)
+    board.group_pic = (await getImageInfo(board.group_pic))!;
 
   for (const person of board.board) {
     if (typeof person.photo === "string")
-      person.photo = (await getImageInfo(person.photo as string))!;
+      person.photo = (await getImageInfo(person.photo))!;
   }
 
   return board;

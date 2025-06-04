@@ -27,12 +27,8 @@ collections:
         widget: number
       - label: Group Photo
         name: group_pic
-        widget: object
-        fields:
-          - { label: Show, name: show, widget: boolean, default: true }
-          - label: "Photo"
-            name: "photo"
-            widget: "image"
+        widget: "image"
+        required: false
       - label: "Office Bearers"
         name: "board"
         widget: list
@@ -155,27 +151,33 @@ collections:
                 name: "button1"
                 widget: "object"
                 fields:
-                  - {
-                      label: "Show",
-                      name: "show",
-                      widget: "boolean",
-                      default: true,
-                    }
-                  - { label: "Text", name: "text", widget: "string" }
-                  - { label: "Link", name: "link", widget: "string" }
-                  - {
-                      label: "Open in New Tab",
-                      name: "newtab",
-                      widget: "boolean",
-                    }
+                  - label: "Text"
+                    name: "text"
+                    widget: "string"
+                    required: false
+                  - label: "Link"
+                    name: "link"
+                    widget: "string"
+                    required: false
+                  - label: "Open in New Tab"
+                    name: "newtab"
+                    widget: "boolean"
+                    required: false
+                    default: false
               - label: "Button 2"
                 name: "button2"
                 widget: "object"
                 fields:
-                  - { label: "Text", name: "text", widget: "string" }
-                  - { label: "Link", name: "link", widget: "string" }
-                  - {
-                      label: "Open in New Tab",
-                      name: "newtab",
-                      widget: "boolean",
-                    }
+                  - label: "Text"
+                    name: "text"
+                    widget: "string"
+                    required: false
+                  - label: "Link"
+                    name: "link"
+                    widget: "string"
+                    required: false
+                  - label: "Open in New Tab"
+                    name: "newtab"
+                    widget: "boolean"
+                    required: false
+                    default: false

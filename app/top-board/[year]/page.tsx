@@ -55,11 +55,11 @@ const Page: React.FC<PageProps> = async ({ params }) => {
         </div>
       </div>
 
-      {group_pic.show && (
+      {group_pic && (
         <Gallery
           pics={[
             {
-              ...(group_pic.photo as ImageInfo),
+              ...(group_pic as ImageInfo),
               title: `Top Board of ${year}`,
             },
           ]}
