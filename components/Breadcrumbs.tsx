@@ -32,6 +32,9 @@ export default function Breadcrumbs() {
   const segments = useSelectedLayoutSegments();
   const notfound = segments[segments.length - 1] === "/_not-found";
 
+  const formatSlug = (slug: string): string =>
+    titleCase(slug.replace("-", " "));
+
   return (
     segments.length !== 0 && (
       <Breadcrumb className="relative !z-80 bg-gray-100 p-5 dark:bg-gray-700">
@@ -43,13 +46,15 @@ export default function Breadcrumbs() {
           (segment, i) =>
             i !== segments.length - 1 && (
               <BreadcrumbItem href={`/${segment}`} key={i}>
-                {titleCase(segment.replace("-", " "))}
+                {formatSlug(segment)}
               </BreadcrumbItem>
             ),
         )}
 
         <BreadcrumbItem>
-          {notfound ? "404: Page not found" : segments[segments.length - 1]}
+          {notfound
+            ? "404: Page not found"
+            : formatSlug(segments[segments.length - 1])}
         </BreadcrumbItem>
       </Breadcrumb>
     )
