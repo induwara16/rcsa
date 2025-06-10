@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Exo } from "next/font/google";
@@ -11,6 +13,7 @@ import Footer from "@/components/Footer";
 import Particles from "@/components/Particles";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ScrollToTop from "@/components/ScrollToTop";
+import Loading from "@/components/Loading";
 
 const exo = Exo({
   variable: "--font-exo",
@@ -78,12 +81,14 @@ export default function RootLayout({
         <ThemeModeScript />
       </head>
       <body className={`${exo.className} antialiased`}>
-        <IntersectionObserver />
         <ThemeProvider theme={theme}>
           <Navbar />
           <Breadcrumbs />
           <main className="overflow-hidden bg-white px-5 pb-8 sm:px-10 dark:bg-gray-800">
-            <div className="relative !z-20">{children}</div>
+            <Suspense fallback={<Loading />}>
+              <IntersectionObserver />
+              <div className="relative !z-20">{children}</div>
+            </Suspense>
             <Particles />
           </main>
           <ScrollToTop />
