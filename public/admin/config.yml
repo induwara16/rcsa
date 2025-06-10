@@ -79,27 +79,37 @@ collections:
   #         display_fields: ['piclist.*.title', 'piclist.*.src']
   #         search_fields: ['piclist.*.title']
   #         value_field: 'piclist.*.src'
-  # - name: gallery
-  #   label: Gallery
-  #   description: Upload pictures to the Gallery
-  #   files:
-  #     - label: Pictures
-  #       name: pics
-  #       file: src/content/gallery.md
-  #       fields:
-  #       - label: 'Images'
-  #         name: 'piclist'
-  #         widget: list
-  #         fields:
-  #           - label: Image Source
-  #             name: src
-  #             widget: image
-  #             media_folder: 'gallery'
-  #             public_folder: ''
-  #           - {label: Featured, name: featured, widget: boolean, default: false}
-  #           - {label: Title, name: title, widget: string}
-  #           - {label: Description, name: description, widget: text, required: false}
-  #           - {label: Date, name: date, widget: datetime}
+  - name: gallery
+    label: Gallery
+    description: Upload pictures to the Gallery
+    files:
+      - label: Pictures
+        name: pics
+        file: content/gallery.md
+        fields:
+          - label: "Images"
+            name: "piclist"
+            widget: list
+            fields:
+              - label: Image Source
+                name: src
+                widget: image
+                media_folder: "/public/uploads/gallery"
+                public_folder: "/uploads/gallery"
+              - {
+                  label: Home,
+                  name: home,
+                  widget: boolean,
+                  default: false,
+                  required: false,
+                }
+              - { label: Title, name: title, widget: string }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
   - name: "social"
     label: "Social Links"
     description: Social Media Links
