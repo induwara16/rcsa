@@ -22,7 +22,7 @@ const ScrollToTop: React.FC = () => {
   return (
     <Button
       onClick={handleClick}
-      className={`fixed right-8 bottom-8 z-[1000] !size-12 !p-0 !transition-opacity sm:!size-14 ${visible ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+      className={`fixed right-8 bottom-8 z-[1000] !size-12 !p-0 !transition sm:!size-14 ${visible ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       pill
       size="xl"
     >
