@@ -58,13 +58,13 @@ export default function Gallery({ pics }: { pics: Pic[] }) {
     <>
       <RowsPhotoAlbum
         photos={photos}
-        targetRowHeight={250}
+        targetRowHeight={350}
         componentsProps={{ container: { className: "not-prose md:my-4" } }}
         render={{
           image: function (props, { index, height }) {
             return (
               <div
-                className={`intersect:motion-preset-fade-lg not-intersect:invisible group relative flex h-full overflow-hidden rounded-lg bg-black shadow-md ${index > 3 ? "max-sm:hidden" : ""} `}
+                className={`group relative flex h-full overflow-hidden rounded-lg bg-black shadow-md ${index > 3 ? "max-sm:hidden" : ""} `}
                 style={{ height }}
               >
                 <Image

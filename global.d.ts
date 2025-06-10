@@ -63,11 +63,17 @@ interface ImageInfo {
 interface BoardAttributes {
   year: number;
   group_pic: string | ImageInfo;
-  board: [
-    {
-      name: string;
-      position: string;
-      photo: string | ImageInfo;
-    },
-  ];
+  board: {
+    name: string;
+    position: string;
+    photo: string | ImageInfo;
+  }[];
+}
+
+interface GalleryAttributes {
+  piclist: {
+    src: string | ImageInfo;
+    title: string;
+    home?: boolean;
+  }[];
 }

@@ -6,13 +6,17 @@ import CountupSection from "@/components/CountupSection";
 import TickListItem from "@/components/TickListItem";
 import TopBoardCard from "@/components/TopBoardCard";
 import Carousel from "@/components/Carousel";
+import Gallery from "@/components/Gallery";
 import { Banner1, Banner2 } from "@/components/Banner";
+
+import { attributes as gallery } from "@/content/gallery.md";
 
 import about_us from "@/assets/images/about-us.png";
 import about_us_lg from "@/assets/images/about-us-lg.png";
 import welcome from "@/assets/images/welcome.png";
 
 import { getAllBoardYears, getBoardByYear } from "@/util/boards";
+import { getGallery } from "@/util/image";
 
 async function getLatestBoard() {
   const boards = await getAllBoardYears();
@@ -21,6 +25,9 @@ async function getLatestBoard() {
 
 export default async function Home() {
   const { year, board } = (await getLatestBoard()) as BoardAttributes;
+
+  const { piclist } = gallery as GalleryAttributes;
+  const homePics = await getGallery(piclist.filter((pic) => pic.home));
 
   return (
     <div className="flex flex-col gap-y-10 pb-10">
@@ -85,6 +92,10 @@ export default async function Home() {
             <TickListItem>Research</TickListItem>
           </List>
         </div>
+      </section>
+
+      <section className="intersect:motion-preset-fade-lg not-intersect:invisible">
+        <Gallery pics={homePics} />
       </section>
 
       <section className="format dark:format-invert flex max-w-none flex-col items-center text-center">

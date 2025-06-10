@@ -104,12 +104,6 @@ collections:
                   required: false,
                 }
               - { label: Title, name: title, widget: string }
-              - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false,
-                }
   - name: "social"
     label: "Social Links"
     description: Social Media Links
