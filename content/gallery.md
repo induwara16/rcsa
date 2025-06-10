@@ -27,4 +27,13 @@ piclist:
   - home: false
     src: /uploads/gallery/26.jpg
     title: Oceania '23
+  - home: false
+    title: QuantumCast '24
+    src: /uploads/gallery/11.jpg
+  - home: false
+    src: /uploads/gallery/36.jpg
+    title: QuantumCast '24
+  - home: false
+    title: QuantumCast '24
+    src: /uploads/gallery/18.jpg
 ---
