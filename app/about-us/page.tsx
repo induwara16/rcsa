@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,6 +11,10 @@ import CountupSection from "@/components/CountupSection";
 
 import logo from "@/assets/images/logo.png";
 import vision_mission from "@/assets/images/vision-mission.png";
+
+export const metadata: Metadata = {
+  title: "About Us",
+};
 
 const Page = () => {
   return (

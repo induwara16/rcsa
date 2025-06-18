@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
+
 import { FooterSocial } from "@/components/FooterComponents";
 import { MdOutlineAlternateEmail, MdOutlineShare } from "react-icons/md";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+};
 
 const Page = async () => {
   return (

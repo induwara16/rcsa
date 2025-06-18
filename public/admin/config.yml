@@ -192,6 +192,26 @@ collections:
           - { label: "X", name: "x", widget: string }
           - { label: "YouTube", name: "youtube", widget: string }
           - { label: "WhatsApp", name: "whatsapp", widget: string }
+  - name: "form_config"
+    label: "Form Configuration"
+    description: Configure forms for the website
+    files:
+      - label: "Form Configuration"
+        name: form_config
+        file: content/form_config.md
+        fields:
+          - label: Service Account Email
+            name: "service_acc_email"
+            widget: string
+          - label: "Private Key"
+            name: "private_key"
+            widget: text
+          - label: Sign Up Form
+            name: "signup_form"
+            widget: relation
+            collection: forms
+            value_field: "form_name"
+            search_fields: ["form_name"]
   - name: "banners"
     label: "Banners"
     description: Banner 1 and Banner 2

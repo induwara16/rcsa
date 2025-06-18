@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "flowbite-react";
 
@@ -15,6 +16,22 @@ interface PageProps {
   params: Promise<{
     year: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { year } = await params;
+
+  if (!year) {
+    return {
+      title: "Page Not Found",
+    };
+  }
+
+  return {
+    title: `Top Board of ${year}`,
+  };
 }
 
 export const dynamicParams = false;

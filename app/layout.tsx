@@ -23,8 +23,52 @@ const exo = Exo({
 });
 
 export const metadata: Metadata = {
-  title: "RCSA - Royal College Science Association",
-  description: "Official website of the Royal College Science Association",
+  title: {
+    default: "RCSA - Royal College Science Association",
+    template: "%s | RCSA",
+  },
+  description:
+    "Official website of the Royal College Science Association, where we explore the wonders of science and technology together.",
+  keywords: [
+    "science",
+    "royal college",
+    "sri lanka",
+    "association",
+    "education",
+    "technology",
+  ],
+  metadataBase: new URL("https://rcsa-new.netlify.app"),
+  openGraph: {
+    title: "RCSA - Royal College Science Association",
+    description:
+      "Official website of the Royal College Science Association, where we explore the wonders of science and technology together.",
+    url: "/",
+    siteName: "RCSA - Royal College Science Association",
+    images: [
+      {
+        url: "/favicon.png",
+        width: 1200,
+        height: 630,
+        alt: "RCSA - Royal College Science Association",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RCSA - Royal College Science Association",
+    description:
+      "Official website of the Royal College Science Association, where we explore the wonders of science and technology together.",
+    images: ["/favicon.png"],
+    creator: "@RCSA1909",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const theme = createTheme({

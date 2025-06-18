@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
+
 import Gallery, { type Pic } from "@/components/Gallery";
 import { attributes as gallery } from "@/content/gallery.md";
 
 import { getImageInfo } from "@/util/image";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+};
 
 const Page = async () => {
   const { piclist } = gallery as GalleryAttributes;
