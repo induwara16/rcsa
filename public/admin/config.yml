@@ -79,6 +79,81 @@ collections:
   #         display_fields: ['piclist.*.title', 'piclist.*.src']
   #         search_fields: ['piclist.*.title']
   #         value_field: 'piclist.*.src'
+  - name: forms
+    label: Forms
+    description: Add and edit forms
+    folder: content/forms
+    create: true
+    identifier_field: form_name
+    fields:
+      - label: "Form Name"
+        name: form_name
+        widget: string
+      - label: Google Spreadsheet ID
+        name: g_spreadsheet
+        widget: string
+      - label: "Form fields"
+        name: "fields"
+        widget: "list"
+        types:
+          - label: "Short Text"
+            name: "textedit"
+            widget: object
+            fields:
+              - {
+                  label: Required,
+                  name: required,
+                  widget: boolean,
+                  default: false,
+                  required: false,
+                }
+              - { label: Label, name: label, widget: string }
+              - {
+                  label: Validation Regex,
+                  name: regex,
+                  widget: string,
+                  required: false,
+                }
+          - label: "Long Text"
+            name: "textarea"
+            widget: object
+            fields:
+              - {
+                  label: Required,
+                  name: required,
+                  widget: boolean,
+                  default: false,
+                  required: false,
+                }
+              - { label: Label, name: label, widget: string }
+              - {
+                  label: Max Letters,
+                  name: max,
+                  widget: number,
+                  required: false,
+                  default: 1000,
+                }
+          - label: "Multiple Choice"
+            name: "mcq"
+            widget: object
+            fields:
+              - {
+                  label: Required,
+                  name: required,
+                  widget: boolean,
+                  default: false,
+                  required: false,
+                }
+              - { label: Label, name: label, widget: string }
+              - label: Type
+                name: varient
+                widget: "select"
+                options: ["Radio", "Checkboxes", "Dropdown"]
+                default: "Radio"
+              - label: "Options"
+                name: "options"
+                widget: list
+                field: { label: "Option", name: "option", widget: "string" }
   - name: gallery
     label: Gallery
     description: Upload pictures to the Gallery
