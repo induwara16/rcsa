@@ -77,3 +77,37 @@ interface GalleryAttributes {
     home?: boolean;
   }[];
 }
+
+type ShortTextField = {
+  label: string;
+  required?: boolean;
+  placeholder?: string;
+  validation_regex?: string;
+};
+
+type LongTextField = {
+  label: string;
+  required?: boolean;
+  placeholder?: string;
+  max_letters?: number;
+};
+
+type MCQField = {
+  label: string;
+  required?: boolean;
+  options: string[];
+};
+
+type FormField = ShortTextField | LongTextField | MCQField;
+
+interface FormAttributes {
+  form_name: string;
+  g_spreadsheet: string;
+  fields: FormField[];
+}
+
+interface FormConfigAttributes {
+  sign_up_form: string;
+  service_acc_email: string;
+  private_key: string;
+}

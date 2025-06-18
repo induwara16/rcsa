@@ -108,6 +108,13 @@ collections:
                   required: false,
                 }
               - { label: Label, name: label, widget: string }
+
+              - {
+                  label: Placeholder,
+                  name: placeholder,
+                  widget: string,
+                  required: false,
+                }
               - {
                   label: Validation Regex,
                   name: regex,
@@ -126,6 +133,12 @@ collections:
                   required: false,
                 }
               - { label: Label, name: label, widget: string }
+              - {
+                  label: Placeholder,
+                  name: placeholder,
+                  widget: string,
+                  required: false,
+                }
               - {
                   label: Max Letters,
                   name: max,
