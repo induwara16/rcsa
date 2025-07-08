@@ -45,7 +45,7 @@ export default async function Home() {
             <Button pill as={Link} href="/about-us">
               View More
             </Button>
-            <Button pill color="dark" as={Link} href="/register" outline>
+            <Button pill color="dark" as={Link} href="/join-us" outline>
               Join Us
             </Button>
           </div>
