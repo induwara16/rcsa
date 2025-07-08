@@ -19,7 +19,6 @@ const exo = Exo({
   variable: "--font-exo",
   subsets: ["latin"],
   display: "swap",
-  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {

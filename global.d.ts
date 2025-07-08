@@ -79,13 +79,15 @@ interface GalleryAttributes {
 }
 
 type ShortTextField = {
+  type: "textedit";
   label: string;
   required?: boolean;
   placeholder?: string;
-  validation_regex?: string;
+  regex?: string;
 };
 
 type LongTextField = {
+  type: "textarea";
   label: string;
   required?: boolean;
   placeholder?: string;
@@ -93,8 +95,10 @@ type LongTextField = {
 };
 
 type MCQField = {
+  type: "mcq";
   label: string;
   required?: boolean;
+  varient: "radio" | "checkbox" | "dropdown";
   options: string[];
 };
 
@@ -107,7 +111,7 @@ interface FormAttributes {
 }
 
 interface FormConfigAttributes {
-  sign_up_form: string;
+  signup_form: string;
   service_acc_email: string;
   private_key: string;
 }

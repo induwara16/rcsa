@@ -98,12 +98,12 @@ export default async function Home() {
         <Gallery pics={homePics} />
       </section>
 
-      <section className="format dark:format-invert flex max-w-none flex-col items-center text-center">
+      <section className="format dark:format-invert mt-4 flex max-w-none flex-col items-center text-center">
         <div className="not-intersect:invisible intersect:motion-preset-fade-lg">
           <h1 className="mb-0 text-3xl leading-12 font-semibold lg:text-4xl lg:leading-15">
             Our Top Board
           </h1>
-          <p className="tracking-wider sm:text-lg">
+          <p className="mt-4 tracking-wider sm:text-lg">
             Meet the dedicated individuals who lead our association and drive
             our mission forward.
           </p>

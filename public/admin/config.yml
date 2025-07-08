@@ -38,6 +38,36 @@ collections:
           - label: "Photo"
             name: "photo"
             widget: "image"
+  - name: projects
+    label: Project
+    label_singular: "Project"
+    folder: content/projects
+    create: true
+    path: "{{year}}/{{title}}.md"
+    summary: "{{title}} - {{ year }}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        default: "Oceania"
+      - label: Year
+        name: "year"
+        widget: number
+        default: "2024"
+      - label: Image
+        name: image
+        widget: object
+        fields:
+          - label: Light
+            name: light
+            widget: image
+            media_folder: "/public/uploads/projects"
+            public_folder: "/uploads/projects"
+          - label: Dark
+            name: dark
+            widget: image
+            media_folder: "/public/uploads/projects"
+            public_folder: "/uploads/projects"
   # - name: projects
   #   label: Projects
   #   label_singular: Project
@@ -161,8 +191,8 @@ collections:
               - label: Type
                 name: varient
                 widget: "select"
-                options: ["Radio", "Checkboxes", "Dropdown"]
-                default: "Radio"
+                options: ["radio", "checkbox", "dropdown"]
+                default: "radio"
               - label: "Options"
                 name: "options"
                 widget: list

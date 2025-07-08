@@ -8,7 +8,8 @@ import {
   type BreadcrumbItemProps,
 } from "flowbite-react";
 import { MdHomeFilled } from "react-icons/md";
-import { titleCase } from "title-case";
+
+import { slug2title } from "@/util/util";
 
 const BreadcrumbItem = ({ children, href, ...props }: BreadcrumbItemProps) => {
   const router = useRouter();
@@ -32,9 +33,6 @@ export default function Breadcrumbs() {
   const segments = useSelectedLayoutSegments();
   const notfound = segments[segments.length - 1] === "/_not-found";
 
-  const formatSlug = (slug: string): string =>
-    titleCase(slug.replace("-", " "));
-
   return (
     segments.length !== 0 && (
       <Breadcrumb className="relative !z-80 bg-gray-100 p-5 dark:bg-gray-700">
@@ -46,7 +44,7 @@ export default function Breadcrumbs() {
           (segment, i) =>
             i !== segments.length - 1 && (
               <BreadcrumbItem href={`/${segment}`} key={i}>
-                {formatSlug(segment)}
+                {slug2title(segment)}
               </BreadcrumbItem>
             ),
         )}
@@ -54,7 +52,7 @@ export default function Breadcrumbs() {
         <BreadcrumbItem>
           {notfound
             ? "404: Page not found"
-            : formatSlug(segments[segments.length - 1])}
+            : slug2title(segments[segments.length - 1])}
         </BreadcrumbItem>
       </Breadcrumb>
     )
