@@ -11,13 +11,15 @@ import {
   Radio,
   Checkbox,
   Tooltip,
+  Spinner,
 } from "flowbite-react";
 
 import { title2slug } from "@/util/util";
 
 import { FaAsterisk } from "react-icons/fa";
-import { MdError } from "react-icons/md";
+import { MdCheckCircle, MdError } from "react-icons/md";
 import { submitForm } from "@/actions/submit";
+import { useState } from "react";
 
 type FormProps = {
   form_name: string;
@@ -37,8 +39,15 @@ const Form: React.FC<FormProps> = ({ form_name }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
+    reset,
   } = useForm<Record<string, string>>();
+
+  const isError = Object.keys(errors).length !== 0;
+
+  const [submitStatus, setSubmitStatus] = useState<"error" | "success" | null>(
+    null,
+  );
 
   const onSubmit = async (data: Record<string, string>) => {
     const formData = new FormData();
@@ -48,9 +57,14 @@ const Form: React.FC<FormProps> = ({ form_name }) => {
       formData.append(key, data[key]);
     }
 
-    console.log(Object.fromEntries(formData.entries()));
+    if ((await submitForm(formData)).success) {
+      setSubmitStatus("success");
+      reset();
+    } else {
+      setSubmitStatus("error");
+    }
 
-    await submitForm(formData);
+    setTimeout(() => setSubmitStatus(null), 3000);
   };
 
   return (
@@ -156,7 +170,7 @@ const Form: React.FC<FormProps> = ({ form_name }) => {
               )}
               {errors[slug] && (
                 <Tooltip className="!transition" content={errors[slug].message}>
-                  <Label className="!text-amber-600">
+                  <Label className="!text-amber-500">
                     <MdError />
                   </Label>
                 </Tooltip>
@@ -167,8 +181,44 @@ const Form: React.FC<FormProps> = ({ form_name }) => {
         );
       })}
 
-      <Button className="mt-2" type="submit" pill>
-        Submit
+      <Button
+        className="mt-2"
+        type="submit"
+        color={
+          submitStatus === "error"
+            ? "red"
+            : submitStatus === "success"
+              ? "green"
+              : isError
+                ? "gray"
+                : "default"
+        }
+        pill
+        disabled={isSubmitting || isError}
+      >
+        {submitStatus === "error" ? (
+          <span className="flex gap-2">
+            <MdError className="text-lg" /> Server Error!
+          </span>
+        ) : submitStatus === "success" ? (
+          <span className="flex gap-2">
+            <MdCheckCircle className="text-lg" /> Success!
+          </span>
+        ) : isSubmitting ? (
+          <>
+            <Spinner
+              size="sm"
+              className="my-auto mr-2 fill-gray-600 text-white dark:fill-gray-300"
+            />{" "}
+            Submitting...
+          </>
+        ) : isError ? (
+          <span className="flex gap-2">
+            <MdError className="text-lg" /> Check Errors
+          </span>
+        ) : (
+          "Submit"
+        )}
       </Button>
     </form>
   );

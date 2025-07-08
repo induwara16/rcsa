@@ -15,19 +15,22 @@ export async function submitForm(formData: FormData) {
     if (name !== "sheet_id") values.push(String(value));
   }
 
-  const serviceAccountAuth = new JWT({
-    email: service_acc_email,
-    key: private_key,
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-  });
+  try {
+    const serviceAccountAuth = new JWT({
+      email: service_acc_email,
+      key: private_key,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
 
-  const doc = new GoogleSpreadsheet(sheet_id, serviceAccountAuth);
-  console.log(private_key, service_acc_email);
+    const doc = new GoogleSpreadsheet(sheet_id, serviceAccountAuth);
+    await doc.loadInfo();
 
-  await doc.loadInfo();
+    const sheet = doc.sheetsByIndex[0];
+    await sheet.addRow(values);
 
-  const sheet = doc.sheetsByIndex[0];
-  await sheet.addRow(values);
-
-  return { success: true };
+    return { success: true };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_) {
+    return { success: false };
+  }
 }
