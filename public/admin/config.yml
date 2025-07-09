@@ -40,11 +40,13 @@ collections:
             widget: "image"
   - name: projects
     label: Project
+    media_folder: "/public/uploads/projects"
+    public_folder: "/uploads/projects"
     label_singular: "Project"
     folder: content/projects
     create: true
-    path: "{{year}}/{{title}}.md"
-    summary: "{{title}} - {{ year }}"
+    slug: "{{fields.year}}/{{title}}"
+    summary: "{{title}} - {{fields.year}}"
     fields:
       - label: Title
         name: title
@@ -54,61 +56,32 @@ collections:
         name: "year"
         widget: number
         default: "2024"
-      - label: Image
-        name: image
+      - label: Description
+        name: body
+        widget: markdown
+      - label: "Committee"
+        name: committee
         widget: object
         fields:
-          - label: Light
-            name: light
-            widget: image
-            media_folder: "/public/uploads/projects"
-            public_folder: "/uploads/projects"
-          - label: Dark
-            name: dark
-            widget: image
-            media_folder: "/public/uploads/projects"
-            public_folder: "/uploads/projects"
-  # - name: projects
-  #   label: Projects
-  #   label_singular: Project
-  #   description: Create and edit project descriptions
-  #   folder: src/content/projects
-  #   create: true
-  #   fields:
-  #     - label: Name
-  #       name: title
-  #       widget: string
-  #     - label: Pinned
-  #       name: pinned
-  #       widget: boolean
-  #       default: false
-  #     - label: Start
-  #       name: start
-  #       widget: datetime
-  #     - label: End
-  #       name: end
-  #       widget: datetime
-  #       required: false
-  #     - label: Featured Image,
-  #       name: featured
-  #       widget: image
-  #       media_folder: /src/content/gallery
-  #       public_folder: ''
-  #     - label: Description
-  #       name: body
-  #       widget: markdown
-  #     - label: Gallery
-  #       name: gallery
-  #       widget: list
-  #       field:
-  #         label: Image
-  #         name: image
-  #         widget: relation
-  #         collection: gallery
-  #         file: pics
-  #         display_fields: ['piclist.*.title', 'piclist.*.src']
-  #         search_fields: ['piclist.*.title']
-  #         value_field: 'piclist.*.src'
+          - label: Chairman
+            name: chairman
+            widget: string
+          - label: Secretary
+            name: secretary
+            widget: string
+          - label: Treasurer
+            name: treasurer
+            widget: string
+      - label: Featured Image
+        name: image
+        widget: image
+      - label: "Gallery"
+        name: "gallery"
+        widget: list
+        field:
+          label: Source
+          name: src
+          widget: image
   - name: forms
     label: Forms
     description: Add and edit forms

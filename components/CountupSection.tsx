@@ -6,7 +6,7 @@ export default function CountupSection() {
   return (
     <section className="z-100 grid grid-cols-1 gap-5 py-10 sm:grid-cols-2 lg:grid-cols-4">
       {[
-        { end: new Date().getFullYear() - 1919, text: "Years of History" },
+        { end: new Date().getFullYear() - 1909, text: "Years of History" },
         { end: 8, text: "Annual Projects" },
         { end: 1000, text: "Member Base" },
         { end: 2500, text: "Social Followers" },
