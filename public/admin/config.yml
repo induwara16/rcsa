@@ -12,6 +12,30 @@ site_url: https://rcsa-new.netlify.app
 display_url: /
 
 collections:
+  - name: categories
+    label: Categories and Tags
+    description: Add and edit categories and tags
+    files:
+      - label: Categories and Tags
+        name: categories
+        file: content/categories.md
+        fields:
+          - label: Categories (to sort news)
+            name: categories
+            widget: list
+            field:
+              label: "Category"
+              name: "category"
+              widget: "string"
+              pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Not a valid slug"]
+          - label: Tags (to sort projects)
+            name: tags
+            widget: list
+            field:
+              label: "Tag"
+              name: "tag"
+              widget: "string"
+              pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Not a valid slug"]
   - name: boards
     label: Top Boards
     identifier_field: year
@@ -45,6 +69,7 @@ collections:
     label_singular: "Project"
     folder: content/projects
     create: true
+    nested: { depth: 100 }
     slug: "{{fields.year}}/{{title}}"
     summary: "{{title}} - {{fields.year}}"
     fields:
