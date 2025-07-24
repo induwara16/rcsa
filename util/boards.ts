@@ -36,20 +36,3 @@ export async function getBoardByYear(
 
   return board;
 }
-
-export async function getAdjacentBoardYears(
-  year: string,
-): Promise<{ prev: string | null; next: string | null }> {
-  const years = (await getAllBoardYears()).map(Number).sort((a, b) => a - b);
-  const currentYear = Number(year);
-
-  let prev: string | null = null;
-  let next: string | null = null;
-
-  for (const y of years) {
-    if (y < currentYear) prev = y.toString();
-    if (y > currentYear && next === null) next = y.toString();
-  }
-
-  return { prev, next };
-}

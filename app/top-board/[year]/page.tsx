@@ -4,13 +4,11 @@ import { Button } from "flowbite-react";
 
 import Gallery from "@/components/Gallery";
 import TopBoardCard from "@/components/TopBoardCard";
-import { BoardPagination } from "@/components/Pagination";
+import Pagination from "@/components/Pagination";
 
-import {
-  getAdjacentBoardYears,
-  getAllBoardYears,
-  getBoardByYear,
-} from "@/util/boards";
+import { getAllBoardYears, getBoardByYear } from "@/util/boards";
+import { getAllProjectYears } from "@/util/projects";
+import { getAdjacentElems } from "@/util/util";
 
 interface PageProps {
   params: Promise<{
@@ -46,7 +44,8 @@ export async function generateStaticParams() {
 const Page: React.FC<PageProps> = async ({ params }) => {
   const { year } = await params;
   const { board, group_pic } = (await getBoardByYear(year))!;
-  const { prev, next } = await getAdjacentBoardYears(year);
+  const { prev, next } = getAdjacentElems(year, await getAllBoardYears());
+  const showYearButton = (await getAllProjectYears()).includes(year);
 
   return (
     <div className="relative flex flex-col gap-y-10 pt-10 pb-5">
@@ -58,17 +57,19 @@ const Page: React.FC<PageProps> = async ({ params }) => {
         </div>
 
         <div className="flex gap-3 max-md:flex-col">
-          <Button
-            pill
-            color="dark"
-            outline
-            as={Link}
-            href={`/projects/${year}`}
-          >
-            The Year
-          </Button>
+          {showYearButton && (
+            <Button
+              pill
+              color="dark"
+              outline
+              as={Link}
+              href={`/projects/${year}`}
+            >
+              The Year
+            </Button>
+          )}
 
-          <BoardPagination next={next} prev={prev} />
+          <Pagination prefix="top-board" next={next} prev={prev} />
         </div>
       </div>
 
