@@ -82,7 +82,7 @@ const Page = () => {
             <Button as={Link} href="/projects" pill>
               Explore Projects
             </Button>
-            <Button as={Link} href="/news" pill outline>
+            <Button as={Link} href="/posts/news" pill outline>
               Latest News
             </Button>
           </div>

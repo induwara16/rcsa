@@ -13,27 +13,19 @@ display_url: /
 
 collections:
   - name: categories
-    label: Categories and Tags
-    description: Add and edit categories and tags
+    label: Categories
+    description: Add and edit categories
     files:
-      - label: Categories and Tags
+      - label: Categories
         name: categories
         file: content/categories.md
         fields:
-          - label: Categories (to sort news)
+          - label: Categories
             name: categories
             widget: list
             field:
               label: "Category"
               name: "category"
-              widget: "string"
-              pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Not a valid slug"]
-          - label: Tags (to sort projects)
-            name: tags
-            widget: list
-            field:
-              label: "Tag"
-              name: "tag"
               widget: "string"
               pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Not a valid slug"]
   - name: boards

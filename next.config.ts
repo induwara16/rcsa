@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 import { getAllBoardYears } from "./util/boards";
+import { getAllProjectYears } from "./util/projects";
 
 const nextConfig: NextConfig = {
   webpack: (cfg) => {
@@ -14,6 +15,7 @@ const nextConfig: NextConfig = {
   },
   redirects: async () => {
     const year = (await getAllBoardYears())[0];
+    const projectYear = (await getAllProjectYears())[0];
 
     return [
       {
@@ -21,7 +23,12 @@ const nextConfig: NextConfig = {
         destination: `/top-board/${year}`,
         permanent: false,
       },
-    ]
+      {
+        source: "/projects",
+        destination: `/projects/${projectYear}`,
+        permanent: false,
+      },
+    ];
   },
 };
 

@@ -37,7 +37,7 @@ export default function _Footer() {
               <FooterLinkGroup col>
                 <FooterLink href="/join-us">Join Us!</FooterLink>
                 <FooterLink href="/gallery">Gallery</FooterLink>
-                <FooterLink href="/news">News</FooterLink>
+                <FooterLink href="/posts/news">News</FooterLink>
               </FooterLinkGroup>
             </div>
             <div>

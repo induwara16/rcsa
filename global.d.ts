@@ -115,3 +115,15 @@ interface FormConfigAttributes {
   service_acc_email: string;
   private_key: string;
 }
+
+interface ProjectAttributes {
+  title: string;
+  year: string;
+  committee: {
+    chairman: string;
+    secretary: string;
+    treasurer: string;
+  };
+  image: string | ImageInfo;
+  gallery: (string | ImageInfo)[];
+}

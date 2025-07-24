@@ -35,8 +35,8 @@ export default function Navbar_() {
         <NavbarLink as={Link} href="/projects">
           Projects
         </NavbarLink>
-        <NavbarLink as={Link} href="/news">
-          News
+        <NavbarLink as={Link} href="/posts">
+          Posts
         </NavbarLink>
 
         <NavbarLink as="div">
