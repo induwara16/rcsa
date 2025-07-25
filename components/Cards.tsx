@@ -47,11 +47,11 @@ export const ProjectCard = ({
         <Image
           {...(project.image as ImageInfo)}
           alt={project.title}
-          className="mx-auto h-auto w-full object-cover !transition group-hover:scale-105"
+          className="mx-auto !my-0 h-auto w-full object-cover !transition group-hover:scale-105"
         />
 
-        <div className="flex flex-col gap-3 px-4 pt-2 pb-4">
-          <h4 className="my-0 text-xl leading-6 font-bold text-black/80 dark:text-gray-200">
+        <div className="flex flex-col gap-3 !px-4 !pt-2 !pb-5">
+          <h4 className="!my-0 !text-xl !leading-6 !font-bold text-black/80 dark:text-gray-200">
             {project.title}&rsquo;{project.year.slice(-2)}
           </h4>
 
@@ -59,7 +59,7 @@ export const ProjectCard = ({
             text={project.excerpt!}
             id={project.name!}
             lines={6}
-            className="text-sm font-medium text-gray-500 dark:text-gray-300/80"
+            className="!text-sm !font-medium text-gray-500 *:!my-0 dark:text-gray-300/80"
           />
         </div>
       </Card>

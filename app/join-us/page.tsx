@@ -21,7 +21,7 @@ const Page = async () => {
           Fill the following form to become a member of RCSA
         </p>
       </div>
-      <div className="px-2">
+      <div className="not-intersect:invisible intersect:motion-preset-fade-lg px-2">
         <Form form_name={signup_form} />
       </div>
     </div>

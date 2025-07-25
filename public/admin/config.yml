@@ -55,7 +55,7 @@ collections:
         default: "Oceania"
       - label: Year
         name: "year"
-        widget: number
+        widget: string
         default: "2024"
       - label: Description
         name: body

@@ -35,7 +35,7 @@ export default function Breadcrumbs() {
 
   return (
     segments.length !== 0 && (
-      <Breadcrumb className="relative !z-80 bg-gray-100 p-5 dark:bg-gray-700">
+      <Breadcrumb className="not-intersect:invisible intersect:motion-preset-slide-down-lg relative !z-80 bg-gray-100 p-5 dark:bg-gray-700">
         <BreadcrumbItem href="/" icon={MdHomeFilled}>
           Home
         </BreadcrumbItem>

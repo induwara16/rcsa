@@ -143,3 +143,8 @@ declare module "excerpt-html" {
     },
   ): string;
 }
+
+interface HomepageConfig {
+  projects: number;
+  posts: number;
+}
