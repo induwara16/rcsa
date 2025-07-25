@@ -16,7 +16,6 @@ import {
   getProject,
   getProjectsByYear,
 } from "@/util/projects";
-import { title } from "process";
 
 export default async function _Footer() {
   const year = (await getAllProjectYears())[0];
