@@ -13,17 +13,30 @@ export const title2slug = (title: string): string =>
 export function getAdjacentElems<T>(
   elem: T,
   arr: T[],
-): { prev: string | null; next: string | null } {
-  const years = arr.map(Number).sort((a, b) => a - b);
-  const currentYear = Number(elem);
+  sort = true,
+): { prev: T | null; next: T | null } {
+  if (sort) {
+    const years = arr.map(Number).sort((a, b) => a - b);
+    const currentYear = Number(elem);
 
-  let prev: string | null = null;
-  let next: string | null = null;
+    let prev: T | null = null;
+    let next: T | null = null;
 
-  for (const y of years) {
-    if (y < currentYear) prev = y.toString();
-    if (y > currentYear && next === null) next = y.toString();
+    for (const y of years) {
+      if (y < currentYear) prev = y.toString() as T;
+      if (y > currentYear && next === null) next = y.toString() as T;
+    }
+
+    return { prev, next };
+  } else {
+    let prev: T | null = null;
+    let next: T | null = null;
+
+    const i = arr.indexOf(elem);
+
+    if (i > 0) prev = arr[i - 1];
+    if (i < arr.length - 1) next = arr[i + 1];
+
+    return { prev, next };
   }
-
-  return { prev, next };
 }

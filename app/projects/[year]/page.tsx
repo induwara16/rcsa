@@ -79,7 +79,11 @@ const Page: React.FC<PageProps> = async ({ params }) => {
             </Button>
           )}
 
-          <Dropdown className="font-medium" label="Other Years">
+          <Dropdown
+            className="font-medium"
+            label="Other Years"
+            disabled={allYears.length <= 1}
+          >
             {allYears
               .filter((y) => y !== year)
               .map((y) => (

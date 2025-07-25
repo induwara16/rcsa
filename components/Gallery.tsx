@@ -23,7 +23,13 @@ export interface Pic {
   src: string;
 }
 
-export default function Gallery({ pics }: { pics: Pic[] }) {
+export default function Gallery({
+  pics,
+  height = 350,
+}: {
+  pics: Pic[];
+  height?: number;
+}) {
   const [index, setIndex] = useState(-1);
 
   const photos = pics.map(function (pic, i) {
@@ -58,7 +64,7 @@ export default function Gallery({ pics }: { pics: Pic[] }) {
     <>
       <RowsPhotoAlbum
         photos={photos}
-        targetRowHeight={350}
+        targetRowHeight={height}
         componentsProps={{ container: { className: "not-prose md:my-4" } }}
         render={{
           image: function (props, { index, height }) {
