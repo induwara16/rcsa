@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import CountupSection from "@/components/CountupSection";
 import TickListItem from "@/components/TickListItem";
-import TopBoardCard from "@/components/TopBoardCard";
+import { TopBoardCard } from "@/components/Cards";
 import Carousel from "@/components/Carousel";
 import Gallery from "@/components/Gallery";
 import { Banner1, Banner2 } from "@/components/Banner";

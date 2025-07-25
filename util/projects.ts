@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import path from "path";
 import fs from "fs";
+
+import excerptHtml from "excerpt-html";
 import { getImageInfo } from "./image";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/projects");
@@ -24,13 +26,15 @@ export async function getProjectsByYear(year: string): Promise<string[]> {
 export async function getProject(
   year: string,
   name: string,
-): Promise<ProjectAttributes | null> {
+): Promise<
+  (ProjectAttributes & { name: string; html: string; excerpt: string }) | null
+> {
   const filePath = path.join(CONTENT_DIR, `${year}/${name}.md`);
   if (!fs.existsSync(filePath)) return null;
 
-  const project: ProjectAttributes = require(
+  const { attributes: project, html } = require(
     `@/content/projects/${year}/${name}.md`,
-  ).attributes;
+  ) as { attributes: ProjectAttributes; html: string };
 
   if (typeof project.image === "string" && project.image)
     project.image = (await getImageInfo(project.image))!;
@@ -43,5 +47,7 @@ export async function getProject(
       }),
     );
 
-  return project;
+  const excerpt = excerptHtml(html, { pruneLength: 0 });
+
+  return { excerpt, html, name, ...project };
 }

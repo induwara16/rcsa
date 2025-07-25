@@ -74,7 +74,7 @@ export default function Gallery({ pics }: { pics: Pic[] }) {
                   alt=""
                 />
 
-                <div className="absolute inset-0 bg-black/50 opacity-0 !transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-black/70 opacity-0 !transition-opacity group-hover:opacity-100" />
                 <MdZoomIn className="pointer-events-none relative z-100 m-auto size-18 text-gray-200 opacity-0 drop-shadow-2xl drop-shadow-white !transition group-hover:opacity-100" />
               </div>
             );

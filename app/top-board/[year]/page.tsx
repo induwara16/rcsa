@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "flowbite-react";
 
 import Gallery from "@/components/Gallery";
-import TopBoardCard from "@/components/TopBoardCard";
+import { TopBoardCard } from "@/components/Cards";
 import Pagination from "@/components/Pagination";
 
 import { getAllBoardYears, getBoardByYear } from "@/util/boards";

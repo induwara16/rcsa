@@ -126,4 +126,20 @@ interface ProjectAttributes {
   };
   image: string | ImageInfo;
   gallery: (string | ImageInfo)[];
+  name?: string;
+  html?: string;
+  excerpt?: string;
+}
+
+declare module "excerpt-html" {
+  export default function excerptHtml(
+    html: string,
+    options?: {
+      moreRegExp?: RegExp;
+      stripTags?: boolean;
+      pruneLength?: number;
+      pruneString?: string;
+      pruneSeparator?: string;
+    },
+  ): string;
 }
