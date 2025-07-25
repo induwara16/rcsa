@@ -11,8 +11,21 @@ import {
   FooterLink,
   FooterCopyright,
 } from "@/components/FooterComponents";
+import {
+  getAllProjectYears,
+  getProject,
+  getProjectsByYear,
+} from "@/util/projects";
+import { title } from "process";
 
-export default function _Footer() {
+export default async function _Footer() {
+  const year = (await getAllProjectYears())[0];
+  const projects = await Promise.all(
+    (await getProjectsByYear(year))
+      .slice(0, 3)
+      .map(async (name) => await getProject(year, name)),
+  );
+
   return (
     <Footer
       className="relative z-20 !rounded-none bg-gray-100 sm:px-8 sm:pt-10 sm:pb-8 dark:bg-gray-700"
@@ -43,9 +56,14 @@ export default function _Footer() {
             <div>
               <FooterTitle title="Projects" />
               <FooterLinkGroup col>
-                <FooterLink href="#">Forza Scientia&apos;25</FooterLink>
-                <FooterLink href="#">SCI-GENIX&apos;25</FooterLink>
-                <FooterLink href="#">SCI-WAVE&apos;25</FooterLink>
+                {projects.map((project, i) => (
+                  <FooterLink
+                    href={`/projects/${project!.year}/${project!.name}`}
+                    key={i}
+                  >
+                    {project!.title}&lsquo;{project!.year.slice(-2)}
+                  </FooterLink>
+                ))}
               </FooterLinkGroup>
             </div>
           </div>

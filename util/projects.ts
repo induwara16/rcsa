@@ -11,7 +11,10 @@ export async function getAllProjectYears(): Promise<string[]> {
   return fs.promises
     .readdir(CONTENT_DIR, { withFileTypes: true })
     .then((entries) =>
-      entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name),
+      entries
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name)
+        .sort((a, b) => Number(b) - Number(a)),
     );
 }
 

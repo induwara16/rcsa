@@ -35,7 +35,7 @@ export default function Breadcrumbs() {
 
   return (
     segments.length !== 0 && (
-      <Breadcrumb className="not-intersect:invisible intersect:motion-preset-slide-down-lg relative !z-80 bg-gray-100 p-5 dark:bg-gray-700">
+      <Breadcrumb className="relative !z-80 bg-gray-100 p-5 dark:bg-gray-700">
         <BreadcrumbItem href="/" icon={MdHomeFilled}>
           Home
         </BreadcrumbItem>
@@ -43,7 +43,10 @@ export default function Breadcrumbs() {
         {segments.map(
           (segment, i) =>
             i !== segments.length - 1 && (
-              <BreadcrumbItem href={`/${segment}`} key={i}>
+              <BreadcrumbItem
+                href={`/${segments.slice(0, i + 1).join("/")}`}
+                key={i}
+              >
                 {slug2title(segment)}
               </BreadcrumbItem>
             ),

@@ -7,9 +7,7 @@ import {
   getProject,
   getProjectsByYear,
 } from "@/util/projects";
-import { Button } from "flowbite-react";
-import Pagination from "@/components/Pagination";
-import { getAdjacentElems } from "@/util/util";
+import { Button, Dropdown, DropdownItem } from "flowbite-react";
 import { getAllBoardYears } from "@/util/boards";
 import { ProjectCard } from "@/components/Cards";
 
@@ -44,7 +42,7 @@ export async function generateStaticParams() {
 
 const Page: React.FC<PageProps> = async ({ params }) => {
   const { year } = await params;
-  const { next, prev } = getAdjacentElems(year, await getAllProjectYears());
+  const allYears = await getAllProjectYears();
   const showYearButton = (await getAllBoardYears()).includes(year);
 
   const projects = await Promise.all(
@@ -62,13 +60,13 @@ const Page: React.FC<PageProps> = async ({ params }) => {
         </p>
       </div>
 
-      <div className="flex items-center justify-stretch gap-x-8 gap-y-5 rounded-lg bg-gray-100 p-5 max-lg:flex-col dark:bg-gray-700">
+      <div className="not-intersect:invisible intersect:motion-preset-fade-lg flex items-center justify-stretch gap-x-8 gap-y-5 rounded-lg bg-gray-100 p-5 max-lg:flex-col dark:bg-gray-700">
         <SecondarySearchBar
           filters={{ projects: [year], news: false }}
           className="w-full"
         />
 
-        <div className="mb-2 flex gap-3 max-md:flex-col lg:ml-auto">
+        <div className="mb-2 flex gap-4 max-md:flex-col lg:ml-auto">
           {showYearButton && (
             <Button
               pill
@@ -81,7 +79,15 @@ const Page: React.FC<PageProps> = async ({ params }) => {
             </Button>
           )}
 
-          <Pagination prefix="projects" next={next} prev={prev} />
+          <Dropdown className="font-medium" label="Other Years">
+            {allYears
+              .filter((y) => y !== year)
+              .map((y) => (
+                <DropdownItem key={y} as={Link} href={`/projects/${y}`}>
+                  {y}
+                </DropdownItem>
+              ))}
+          </Dropdown>
         </div>
       </div>
 
