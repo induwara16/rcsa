@@ -19,7 +19,7 @@ import {
 } from "react-icons/bs";
 
 import logo from "@/assets/images/logo.png";
-import { attributes as social } from "@/content/social.md";
+import { attributes as social } from "@/content/config/social.md";
 
 export const FooterSocial = ({ className }: { className?: string }) => {
   const { facebook, instagram, youtube, x, whatsapp } =

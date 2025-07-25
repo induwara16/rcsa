@@ -2,7 +2,7 @@
 
 import { GoogleSpreadsheet } from "google-spreadsheet";
 
-import { attributes } from "@/content/form_config.md";
+import { attributes } from "@/content/config/form.md";
 import { JWT } from "google-auth-library";
 
 export async function submitForm(formData: FormData) {

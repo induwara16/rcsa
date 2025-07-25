@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { attributes as formConfig } from "@/content/form_config.md";
+import { attributes as formConfig } from "@/content/config/form.md";
 import Form from "@/components/Form";
 
 export const metadata: Metadata = {

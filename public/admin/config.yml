@@ -12,22 +12,6 @@ site_url: https://rcsa-new.netlify.app
 display_url: /
 
 collections:
-  - name: categories
-    label: Categories
-    description: Add and edit categories
-    files:
-      - label: Categories
-        name: categories
-        file: content/categories.md
-        fields:
-          - label: Categories
-            name: categories
-            widget: list
-            field:
-              label: "Category"
-              name: "category"
-              widget: "string"
-              pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Not a valid slug"]
   - name: boards
     label: Top Boards
     identifier_field: year
@@ -212,26 +196,44 @@ collections:
                   required: false,
                 }
               - { label: Title, name: title, widget: string }
-  - name: "social"
-    label: "Social Links"
-    description: Social Media Links
+  - name: "config"
+    label: "Site Configuration"
+    description: Configure settings of the website
     files:
       - label: "Social Links"
         name: social
-        file: content/social.md
+        file: content/config/social.md
         fields:
           - { label: "Facebook", name: "facebook", widget: string }
           - { label: "Instagram", name: "instagram", widget: string }
           - { label: "X", name: "x", widget: string }
           - { label: "YouTube", name: "youtube", widget: string }
           - { label: "WhatsApp", name: "whatsapp", widget: string }
-  - name: "form_config"
-    label: "Form Configuration"
-    description: Configure forms for the website
-    files:
+      - label: Categories
+        name: categories
+        file: content/config/categories.md
+        fields:
+          - label: Categories
+            name: categories
+            widget: list
+            field:
+              label: "Category"
+              name: "category"
+              widget: "string"
+              pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Not a valid slug"]
+      - label: "Home Page Configuration"
+        name: homepage
+        file: content/config/homepage.md
+        fields:
+          - label: "Number of projects to show in slider"
+            name: "projects"
+            widget: "number"
+          - label: "Number of posts to show in slider"
+            name: "posts"
+            widget: "number"
       - label: "Form Configuration"
-        name: form_config
-        file: content/form_config.md
+        name: form
+        file: content/config/form.md
         fields:
           - label: Service Account Email
             name: "service_acc_email"
