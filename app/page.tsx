@@ -146,7 +146,7 @@ export default async function Home() {
       </section>
 
       <section className="intersect:motion-preset-fade-lg not-intersect:invisible">
-        <Gallery pics={homePics} />
+        <Gallery pics={homePics} hideMobile />
       </section>
 
       <section className="format dark:format-invert mt-4 flex max-w-none flex-col items-center text-center">

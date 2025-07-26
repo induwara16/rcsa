@@ -17,7 +17,7 @@ import {
   getProjectsByYear,
 } from "@/util/projects";
 
-export default async function _Footer() {
+export default async function FooterComponent() {
   const year = (await getAllProjectYears())[0];
   const projects = await Promise.all(
     (await getProjectsByYear(year))

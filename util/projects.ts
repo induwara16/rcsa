@@ -50,7 +50,7 @@ export async function getProject(
       }),
     );
 
-  const excerpt = excerptHtml(html, { pruneLength: 0 });
+  const excerpt = excerptHtml(html, { pruneLength: 0, moreRegExp: /$/ });
 
   return { excerpt, html, name, ...project };
 }

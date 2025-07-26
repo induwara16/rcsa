@@ -26,9 +26,11 @@ export interface Pic {
 export default function Gallery({
   pics,
   height = 350,
+  hideMobile = false,
 }: {
   pics: Pic[];
   height?: number;
+  hideMobile?: boolean;
 }) {
   const [index, setIndex] = useState(-1);
 
@@ -70,7 +72,7 @@ export default function Gallery({
           image: function (props, { index, height }) {
             return (
               <div
-                className={`group relative flex h-full overflow-hidden rounded-lg bg-black shadow-md ${index > 3 ? "max-sm:hidden" : ""} `}
+                className={`group relative flex h-full overflow-hidden rounded-lg bg-black shadow-md ${hideMobile && index > 3 ? "max-sm:hidden" : ""} `}
                 style={{ height }}
               >
                 <Image
