@@ -1,11 +1,13 @@
 ---
-title: Sci Clone'25
+title: SCI-CLONE
 year: "2024"
 committee:
   chairman: Sanija Wanniarachchi
   secretary: Danuja Kaluarachchi
   treasurer: "-"
-image: /uploads/projects/tds_8130.jpg
+image: /uploads/projects/clone.png
+gallery:
+  - /uploads/projects/tds_8130.jpg
 ---
 **Spreading Waves of Scientific Thought**
 
