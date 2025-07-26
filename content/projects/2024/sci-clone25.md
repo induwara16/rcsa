@@ -4,7 +4,7 @@ year: "2024"
 committee:
   chairman: Sanija Wanniarachchi
   secretary: Danuja Kaluarachchi
-  treasurer: Sanuka Dias
+  treasurer: "-"
 image: /uploads/projects/tds_8130.jpg
 ---
 **Spreading Waves of Scientific Thought**
