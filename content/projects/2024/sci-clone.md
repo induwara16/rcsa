@@ -1,5 +1,5 @@
 ---
-title: SCI-CLONE
+title: Sci Clone
 year: "2024"
 committee:
   chairman: Sanija Wanniarachchi
