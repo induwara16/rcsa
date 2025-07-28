@@ -42,4 +42,4 @@ export function getAdjacentElems<T>(
 }
 
 export const projectName = (title: string, year: string) =>
-  `${title}’{${year.slice(-2)}}`;
+  `${title}’${year.slice(-2)}`;
