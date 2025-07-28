@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Card } from "flowbite-react";
 import ClampLines from "@/components/ClampLines";
 
+import { projectName } from "@/util/util";
+
 export function TopBoardCard({
   person,
   className = "",
@@ -52,7 +54,7 @@ export const ProjectCard = ({
 
         <div className="flex flex-col gap-3 !px-4 !pt-2 !pb-5">
           <h4 className="!my-0 !text-xl !leading-6 !font-bold text-black/80 dark:text-gray-200">
-            {project.title}&rsquo;{project.year.slice(-2)}
+            {projectName(project.title, project.year)}
           </h4>
 
           <ClampLines

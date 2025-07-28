@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "flowbite-react";
 import { MdArrowBackIosNew } from "react-icons/md";
 
-import { getAdjacentElems } from "@/util/util";
+import { getAdjacentElems, projectName } from "@/util/util";
 import {
   getAllProjectYears,
   getProject,
@@ -33,7 +33,7 @@ export async function generateMetadata({
   const { title } = (await getProject(year, name))!;
 
   return {
-    title: `${title}'${year.slice(-2)}`,
+    title: projectName(title, year),
   };
 }
 
@@ -88,18 +88,20 @@ const Page: React.FC<PageProps> = async ({ params }) => {
         <div className="flex flex-4/6 flex-col gap-5 max-md:order-1">
           <div className="not-intersect:invisible intersect:motion-preset-blur-left-lg format dark:format-invert flex !max-w-none flex-col rounded-lg bg-gray-100 px-5 py-8 shadow-lg sm:px-8 sm:py-12 dark:bg-gray-700">
             <h1 className="!mb-3 text-3xl font-bold sm:text-4xl">
-              {title}&lsquo;{year.slice(-2)}
+              {projectName(title, year)}
             </h1>
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </div>
 
-          <Gallery
-            height={150}
-            pics={gallery.map((item) => ({
-              ...(item as ImageInfo),
-              title: `${title}'${year.slice(-2)}`,
-            }))}
-          />
+          {gallery.length !== 0 && (
+            <Gallery
+              height={150}
+              pics={gallery.map((item) => ({
+                ...(item as ImageInfo),
+                title: projectName(title, year),
+              }))}
+            />
+          )}
         </div>
         <div className="flex flex-2/6 flex-col gap-5">
           <div className="not-intersect:invisible intersect:motion-preset-blur-right-lg flex !max-w-none overflow-hidden rounded-lg bg-gray-100 shadow-lg dark:bg-gray-700">

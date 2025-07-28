@@ -16,6 +16,7 @@ import {
   getProject,
   getProjectsByYear,
 } from "@/util/projects";
+import { projectName } from "@/util/util";
 
 export default async function FooterComponent() {
   const year = (await getAllProjectYears())[0];
@@ -60,7 +61,7 @@ export default async function FooterComponent() {
                     href={`/projects/${project!.year}/${project!.name}`}
                     key={i}
                   >
-                    {project!.title}&lsquo;{project!.year.slice(-2)}
+                    {projectName(project!.title, project!.year)}
                   </FooterLink>
                 ))}
               </FooterLinkGroup>
