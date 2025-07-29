@@ -2,10 +2,15 @@
 form_name: Sign Up
 g_spreadsheet: 1RlTM3gK5nue7x_bDDrt49x_uaIvdl9Ww7FQX4HSEBPc
 fields:
-  - type: textedit
+  - type: textarea
     required: true
+    max: 100
     label: Name
     placeholder: Induwara Jayaweera
+  - type: textedit
+    required: true
+    label: Admission Number
+    placeholder: xxxx/xxxx
   - type: textedit
     required: true
     label: Class
